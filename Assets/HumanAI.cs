@@ -182,6 +182,13 @@ public class HumanAI : MonoBehaviour
         seeker.CancelCurrentPathRequest();
         path = null;
     }
+
+    public void RestartSeek()
+    {
+        
+        seeker.CancelCurrentPathRequest();
+        FindNextRandomPath();
+    }
     
     public void OnPathComplete(Path p)
     {

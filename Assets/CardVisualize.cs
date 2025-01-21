@@ -7,10 +7,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-public class CardInfo
-{
-    
-}
 public class CardVisualize : MonoBehaviour, IPointerDownHandler
 {
 
@@ -18,10 +14,17 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
 
     public bool isDraggable = true;
     public TMP_Text text;
+    
     private GameObject selectionCircle;
     public GameObject selectionCirclePrefab;
 
     private CardInfo cardInfo;
+
+    public void Init(CardInfo info)
+    {
+        cardInfo = info;
+        text.text = cardInfo.identifier;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -66,9 +69,28 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
             Debug.Log($"Overlapping with: {results[i].name}");
             if (results[i].GetComponent<Human>())
             {
-                results[i].GetComponent<Human>().Infect(cardInfo);
+                var human = results[i].GetComponent<Human>();
+                switch (cardInfo.actions[0])
+                {
+                    case "infect":
+                        
+                        results[i].GetComponent<Human>().Infect(cardInfo);
+                        break;
+                    case "sneeze":
+                        if (human.isInfected)
+                        {
+                            
+                            results[i].GetComponent<Human>().Sneeze(cardInfo);
+                        }
+                        break;
+                    case "touch":
+                        
+                        results[i].GetComponent<Human>().buffManager.AddBuff("touch",int.Parse(cardInfo.actions[1]));
+                        break;
+                }
             }
         }
+        
         
         
         selectionCircle.SetActive(false);
