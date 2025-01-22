@@ -272,30 +272,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460744568946820850, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8343428956647509340, guid: 486e2cf745bb804499a8b169190d80f8, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
