@@ -8,13 +8,14 @@ public class GameRoundManager : Singleton<GameRoundManager>
     bool isStarted = false;
 
     public float timer;
-    public float levelTime = 60;
+    public float levelTime = 3;
     private bool isFinished = false;
     
     public void StartLevel()
     {
         isStarted = true;
         timer = levelTime;
+        HumanSpawner.Instance.Init();
     }
 
     // Update is called once per frame

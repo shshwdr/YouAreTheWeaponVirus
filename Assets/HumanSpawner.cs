@@ -6,7 +6,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
 {
     public Human[] humans;
     // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         humans = GetComponentsInChildren<Human>();
     }
