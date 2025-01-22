@@ -23,7 +23,7 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Infect(CardInfo cardInfo)
@@ -31,6 +31,8 @@ public class Human : MonoBehaviour
         renderer.color = Color.green;
         isInfected = true;
         EventPool.Trigger("Infect");
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_human_infected");
     }
 
     public void Sneeze(CardInfo cardInfo)
