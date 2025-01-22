@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanSpawner : MonoBehaviour
+public class HumanSpawner : Singleton<HumanSpawner>
 {
-    private Human[] humans;
+    public Human[] humans;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +14,10 @@ public class HumanSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAllAffected())
-        {
-            FindObjectOfType<WinLoseMenu>().Show();
-        }
+        
     }
 
-    bool isAllAffected()
+    public bool isAllAffected()
     {
         foreach (var human in humans)
         {
@@ -30,5 +27,18 @@ public class HumanSpawner : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public int infectedCount()
+    {
+        int count = 0;
+        foreach (var human in humans)
+        {
+            if (human.isInfected)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

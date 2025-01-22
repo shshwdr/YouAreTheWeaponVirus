@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Pool;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,6 +30,7 @@ public class Human : MonoBehaviour
     {
         renderer.color = Color.green;
         isInfected = true;
+        EventPool.Trigger("Infect");
     }
 
     public void Sneeze(CardInfo cardInfo)
