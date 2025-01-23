@@ -23,7 +23,7 @@ public class GameHud : MonoBehaviour
 
     public void UpdateLevel()
     {
-         day.text = "Day " + GameManager.Instance.level;
+         day.text = "Day " + GameRoundManager.Instance.currentLevel;
     }
     // Update is called once per frame
     void Update()

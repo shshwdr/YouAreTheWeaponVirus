@@ -18,10 +18,21 @@ public class WinLoseMenu : MenuBase
     public void ShowWin()
     {
         title.text = "You Win!";
+
+        if (!GameRoundManager.Instance.isMaxLevel)
+        {
+            nextLevel.gameObject.SetActive(true);
+        }
+        else
+        {
+            nextLevel.gameObject.SetActive(false);
+        }
+        
         Show();
     }
     public void ShowLose()
     {
+        nextLevel.gameObject.SetActive(false);
         title.text = "You Lose!";
         Show();
     }
@@ -29,6 +40,7 @@ public class WinLoseMenu : MenuBase
     void Start()
     {
         restartLevel.onClick.AddListener(() => GameRoundManager.Instance.RestartLevel());
+        nextLevel. onClick.AddListener(() => GameRoundManager.Instance.GoToNextLevel());
     }
 
     // Update is called once per frame

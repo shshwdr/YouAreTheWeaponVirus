@@ -11,10 +11,20 @@ public class HumanSpawner : Singleton<HumanSpawner>
         humans = GetComponentsInChildren<Human>();
     }
 
+    public void InfectAll()
+    {
+        foreach (var human in humans)
+        {
+            human.Infect(null);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            InfectAll();
+        }
     }
 
     public bool isAllAffected()
