@@ -11,6 +11,10 @@ public class LevelController : MonoBehaviour
         {
             trans.gameObject.SetActive(false);
         }
-        levelParent.Find("level"+GameRoundManager.Instance.currentLevel).gameObject.SetActive(true);
+        var level = levelParent.Find("level"+GameRoundManager.Instance.currentLevel);
+        level .gameObject.SetActive(true);
+        
+        
+        HumanSpawner.Instance.Init(level);
     }
 }

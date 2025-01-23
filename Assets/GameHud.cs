@@ -34,6 +34,6 @@ public class GameHud : MonoBehaviour
 
     public void UpdateInfect()
     {
-        infectedCount.text = HumanSpawner.Instance.infectedCount() + "/" + HumanSpawner.Instance.humans.Length;
+        infectedCount.text = HumanSpawner.Instance.infectedCount() + "/" + HumanSpawner.Instance.humans.Count;
     }
 }

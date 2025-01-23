@@ -4,13 +4,46 @@ using UnityEngine;
 
 public class HumanSpawner : Singleton<HumanSpawner>
 {
-    public Human[] humans;
+    public List<Human> humans = new List<Human>();
+
+    public GameObject humanPrefab;
     // Start is called before the first frame update
-    public void Init()
+    public void Init(Transform levelParent)
     {
-        humans = GetComponentsInChildren<Human>();
+        foreach (var human in humans)
+        {
+            Destroy(human.gameObject);
+        }
+        humans.Clear();
+        var area = levelParent.Find("areas");
+
+        foreach (var levelDesignInfo in CSVLoader.Instance.levelDesignDict[GameRoundManager.Instance.currentLevel])
+        {
+            var position =
+                GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
+            var human = Instantiate(humanPrefab, position, Quaternion.identity,transform);
+            humans.Add(human.GetComponent<Human>());
+        }
+        
+        //humans = GetComponentsInChildren<Human>();
     }
 
+    public Vector2 GetRandomPointInBoxCollider(BoxCollider2D boxCollider)
+    {
+        if (boxCollider == null)
+        {
+            throw new System.Exception("BoxCollider2D not assigned.");
+        }
+
+        // 获取 BoxCollider2D 的 bounds（边界）
+        Bounds bounds = boxCollider.bounds;
+
+        // 在 bounds 的范围内生成一个随机点
+        float randomX = Random.Range(bounds.min.x, bounds.max.x);
+        float randomY = Random.Range(bounds.min.y, bounds.max.y);
+
+        return new Vector2(randomX, randomY);
+    }
     public void InfectAll()
     {
         foreach (var human in humans)

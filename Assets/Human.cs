@@ -37,7 +37,7 @@ public class Human : MonoBehaviour
 
     public void Sneeze(CardInfo cardInfo)
     {
-        var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity);
+        var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
         
     }
 

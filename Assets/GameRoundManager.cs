@@ -17,6 +17,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     
     public bool isMaxLevel => currentLevel >= maxLevel;
 
+    public Transform tempTrans;
 
     public void GoToNextLevel()
     {
@@ -26,9 +27,15 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public void StartLevel()
     {
         isStarted = true;
-        timer = levelTime;
+        
+        foreach (Transform trans in tempTrans)
+        {
+            Destroy(trans.gameObject);
+        }
+        var levelInfo = CSVLoader.Instance.levelDict[currentLevel];
+        levelTime = levelInfo.time;
+        timer = levelInfo.time;
         levelController = GetComponentInChildren<LevelController>();
-        HumanSpawner.Instance.Init();
         levelController.Init();
         FindObjectOfType<WinLoseMenu>().Hide();
     }
