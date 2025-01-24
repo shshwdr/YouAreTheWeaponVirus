@@ -134,7 +134,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee54221c86ec18429ff15f1b2709a85
+      internalID: 1966199424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6247d1e3bdff80b408d6264704810a08
+      internalID: 2022450237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58dd712745f05ab449b415163565b54a
+      internalID: 279034002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb51dd5e0865c94bbd3fa53d7601891
+      internalID: 1455931740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f5defb97defec4b8db47fc0488dbd7
+      internalID: -1237615741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b0cff8ce731fa499cff318ead245b2
+      internalID: -403005050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d171e0b553fe0a34a9f3dd2ad55022c2
+      internalID: -373168301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c865bc16eb3f6644bacc4831dd03c0a
+      internalID: -1112005877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036cf8fde010c1644ac5561f1546788f
+      internalID: -1856187253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b4723123a90d340808fcaba70c7cbb
+      internalID: -51199067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163435fb3aea254428112372e7aed2eb
+      internalID: 820371226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DOCTOR-Walk-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ddae051da554243b9292a47ba66c9e
+      internalID: -1464840985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +397,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DOCTOR-Walk-SpriteSheet_0: 1966199424
+      DOCTOR-Walk-SpriteSheet_1: 2022450237
+      DOCTOR-Walk-SpriteSheet_10: 820371226
+      DOCTOR-Walk-SpriteSheet_11: -1464840985
+      DOCTOR-Walk-SpriteSheet_2: 279034002
+      DOCTOR-Walk-SpriteSheet_3: 1455931740
+      DOCTOR-Walk-SpriteSheet_4: -1237615741
+      DOCTOR-Walk-SpriteSheet_5: -403005050
+      DOCTOR-Walk-SpriteSheet_6: -373168301
+      DOCTOR-Walk-SpriteSheet_7: -1112005877
+      DOCTOR-Walk-SpriteSheet_8: -1856187253
+      DOCTOR-Walk-SpriteSheet_9: -51199067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

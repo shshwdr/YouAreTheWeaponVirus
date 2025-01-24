@@ -134,7 +134,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fce1bfa4f7f6ae41a7e12d68d54f82f
+      internalID: -170538743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ee5f5295c2a6649a6ef17efb26c4eb
+      internalID: 300902258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f0c9822901a214696ed3db9d3bd6bf
+      internalID: -288189114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7abf0e975d76c41a996ef497bea95f
+      internalID: -766168502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9439482d667af5942a5aa0568b408caf
+      internalID: -1999566295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a2ae03e1b17f848ac9636ea2730bd5
+      internalID: 305905027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddf73e0dd259e94a8490ddfb5b60940
+      internalID: 2134627164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160f6dde23114c641ac871d7edac8fd0
+      internalID: -158954604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a569e0be46a1c147a5c36a284a49810
+      internalID: -1311789636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e32d6823c9c3c40b79f1d9456cc0f1
+      internalID: 585703339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08787c216348ff54fb21bd4cd419ca29
+      internalID: 38505536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OVERLAY-Infection-Stage1-Walk-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e68e8bb1f6cd142ae1d300a11bde5d
+      internalID: -653868627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +397,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_0: -170538743
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_1: 300902258
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_10: 38505536
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_11: -653868627
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_2: -288189114
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_3: -766168502
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_4: -1999566295
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_5: 305905027
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_6: 2134627164
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_7: -158954604
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_8: -1311789636
+      OVERLAY-Infection-Stage1-Walk-SpriteSheet_9: 585703339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

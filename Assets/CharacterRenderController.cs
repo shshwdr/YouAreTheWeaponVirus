@@ -1,44 +1,29 @@
+using System;
 using UnityEngine;
 
 public class CharacterRenderController : MonoBehaviour
 {
-    public string spriteSheetPath = "character/BASE-Walk-SpriteSheet";  // Resources 文件夹中的精灵图路径
-    private Sprite[] walkSprites;  // 存储精灵帧的数组
 
-    public SpriteRenderer spriteRenderer;
     private int currentDirection = 0;  // 0 - Down, 1 - Left, 2 - Right, 3 - Up
     private int currentFrame = 0;     // 当前帧
+    
 
     private float swapFrameTime = 0.3f;
 
     private float swapFrameTimer = 0;
+
+    CharacterRenderer[] renderers;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
-    void Start()
-    {
-
-        // 从 Resources 文件夹加载完整的 Sprite Sheet
-        Texture2D texture = Resources.Load<Texture2D>(spriteSheetPath);
-
-        // 分割 Sprite Sheet 成 4 行 3 列的精灵
-        walkSprites = new Sprite[12]; // 4行 * 3列 = 12帧
-        int spriteIndex = 0;
-
-        for (int row = 0; row < 4; row++)  // 4 行
-        {
-            for (int col = 0; col < 3; col++)  // 3 列
-            {
-                // 计算每个精灵的坐标
-                float x = col * (1f / 3f);
-                float y = 1f - (row + 1) * (1f / 4f);
-                walkSprites[spriteIndex] = Sprite.Create(texture, new Rect(x * texture.width, y * texture.height, texture.width / 3, texture.height / 4), new Vector2(0.5f, 0.5f));
-                spriteIndex++;
-            }
-        }
-    }
+    
 
     private Vector2 lastPosition;
     // 更新人物状态（根据按键方向改变精灵）
     private Vector2 lastDir = Vector2.zero;  // 上一个方向
+
+    private void Awake()
+    {
+        renderers = GetComponentsInChildren<CharacterRenderer>();
+    }
 
     void updateFrame()
     {
@@ -47,7 +32,7 @@ public class CharacterRenderController : MonoBehaviour
         if (swapFrameTimer >= swapFrameTime)
         {
             swapFrameTimer -= swapFrameTime;
-            currentFrame = (currentFrame + 1) % 3;
+            currentFrame = (currentFrame + 1) % 4;
         }
     }
     void Update()
@@ -91,14 +76,16 @@ Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " c
         lastPosition = transform.position;
     }
 
+    private int[] index = new[] { 0, 1, 2, 1 };
     // 根据方向切换精灵帧
     void ChangeSprite(int direction)
     {
         // 计算当前精灵的索引
-        int spriteIndex = direction * 3 + currentFrame;
-
-        // 设置 Sprite Renderer 的精灵
-        spriteRenderer.sprite = walkSprites[spriteIndex];
+        int spriteIndex = direction * 3 + index[ currentFrame];
+        foreach (var renderer in renderers)
+        {
+            renderer.SetSprite(spriteIndex);
+        }
 
     }
 }
