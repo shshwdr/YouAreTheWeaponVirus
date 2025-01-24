@@ -24,6 +24,12 @@ public class GameRoundManager : Singleton<GameRoundManager>
         currentLevel++;
         StartLevel();
     }
+
+    public void Restart()
+    {
+        currentLevel = 1;
+        StartLevel();
+    }
     public void StartLevel()
     {
         isStarted = true;
@@ -72,7 +78,8 @@ public class GameRoundManager : Singleton<GameRoundManager>
     }
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameRoundManager.Instance.Restart();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
     

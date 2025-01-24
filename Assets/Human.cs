@@ -39,7 +39,18 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (lastPosition == transform.position)
+        {
+            staticTimer += Time.deltaTime;
+            if (staticTimer >= staticTime)
+            {
+                
+                GetComponent<HumanAI>().RestartSeek();
+                staticTimer = 0;
+            }
+        }
+        lastPosition = transform.position;
+        
     }
 
     public void Infect(CardInfo cardInfo)
@@ -58,6 +69,9 @@ public class Human : MonoBehaviour
         
     }
 
+    private Vector3 lastPosition;
+    private float staticTime = 1;
+    private float staticTimer;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 获取碰撞到的物体的名称

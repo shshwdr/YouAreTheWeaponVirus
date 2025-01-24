@@ -168,8 +168,21 @@ public class HumanAI : MonoBehaviour
         // }
         // {
        // Vector3 randomPosition = GetRandomPositionAwayFromTarget(Vector3.zero, 10, 50);
-        Vector3 randomPosition = GetRandomPosition(transform.position, moveRange);
-        seeker.StartPath(transform.position, randomPosition, OnPathComplete);
+
+        int test = 100;
+        while (test-->0)
+        {
+            Vector3 randomPosition = GetRandomPosition(transform.position, moveRange);
+            GraphNode startNode = astar.GetNearest(transform.position).node;
+            GraphNode endNode = astar.GetNearest(randomPosition).node;
+            bool isPathPossible = PathUtilities.IsPathPossible(startNode, endNode);
+            if (isPathPossible)
+            {
+                seeker.StartPath(transform.position, randomPosition, OnPathComplete);
+                break;
+            }
+        }
+        //seeker.StartPath(transform.position, randomPosition, OnPathComplete);
         
         // }
         return;
