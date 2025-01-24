@@ -102,6 +102,7 @@ public class HumanAI : MonoBehaviour
         {
             //rb.MovePosition((Vector3)rb.position+(direction * (Time.deltaTime * (human.isSuffering ? speed / 2:speed))));
             transform.position += direction * Time.deltaTime * speed;//(human.isSuffering ? speed / 2:speed);
+            GetComponent<CharacterRenderController>().UpdateDir(direction);
         }
     
         
@@ -169,6 +170,7 @@ public class HumanAI : MonoBehaviour
        // Vector3 randomPosition = GetRandomPositionAwayFromTarget(Vector3.zero, 10, 50);
         Vector3 randomPosition = GetRandomPosition(transform.position, moveRange);
         seeker.StartPath(transform.position, randomPosition, OnPathComplete);
+        
         // }
         return;
        

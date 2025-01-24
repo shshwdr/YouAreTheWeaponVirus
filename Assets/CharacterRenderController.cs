@@ -40,11 +40,25 @@ public class CharacterRenderController : MonoBehaviour
     // 更新人物状态（根据按键方向改变精灵）
     private Vector2 lastDir = Vector2.zero;  // 上一个方向
 
+    void updateFrame()
+    {
+        
+        swapFrameTimer += Time.deltaTime;
+        if (swapFrameTimer >= swapFrameTime)
+        {
+            swapFrameTimer -= swapFrameTime;
+            currentFrame = (currentFrame + 1) % 3;
+        }
+    }
     void Update()
     {
+        updateFrame();
+        ChangeSprite(currentDirection);  // 切换精灵
+    }
+    public void UpdateDir(Vector3 dir)
+    {
         // 获取当前位置与上次位置的差向量
-        var dir = (Vector2)transform.position - lastPosition;
-
+       // var dir = (Vector2)transform.position - lastPosition;
         // 计算当前方向
         Vector2 currentDir = Vector2.zero;
 
@@ -71,9 +85,8 @@ public class CharacterRenderController : MonoBehaviour
             else
                 currentDirection = 0;  // 向下
 
-            ChangeSprite(currentDirection);  // 切换精灵
         }
-
+Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " currentFrame " + transform.position);
         // 更新上次位置
         lastPosition = transform.position;
     }
