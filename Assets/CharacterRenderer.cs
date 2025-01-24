@@ -10,9 +10,13 @@ public class CharacterRenderer : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public void SetSprite(int spriteIndex)
     {
-        
-        // 设置 Sprite Renderer 的精灵
-        spriteRenderer.sprite = walkSprites[spriteIndex];
+        if (walkSprites != null)
+        {
+            
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            // 设置 Sprite Renderer 的精灵
+            spriteRenderer.sprite = walkSprites[spriteIndex];
+        }
     }
     void Start()
     {

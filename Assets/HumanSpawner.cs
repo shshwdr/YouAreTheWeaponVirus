@@ -22,6 +22,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
             var position =
                 GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
             var human = Instantiate(humanPrefab, position, Quaternion.identity,transform);
+            human.GetComponent<Human>().Init(levelDesignInfo.type);
             humans.Add(human.GetComponent<Human>());
         }
         

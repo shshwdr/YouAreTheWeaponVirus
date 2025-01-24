@@ -14,15 +14,20 @@ public class CharacterRenderController : MonoBehaviour
 
     CharacterRenderer[] renderers;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
-    
+    public void GetInfected(int state)
+    {
+        renderers[1].gameObject.SetActive(true);
+    }
 
     private Vector2 lastPosition;
     // 更新人物状态（根据按键方向改变精灵）
     private Vector2 lastDir = Vector2.zero;  // 上一个方向
 
-    private void Awake()
+    public void Init(CharacterInfo info)
     {
-        renderers = GetComponentsInChildren<CharacterRenderer>();
+        
+        renderers = GetComponentsInChildren<CharacterRenderer>(true);
+        renderers[0].spriteSheetPath ="character/"+ info.sprite;
     }
 
     void updateFrame()

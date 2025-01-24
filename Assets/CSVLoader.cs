@@ -16,6 +16,14 @@ public class LevelInfo
 
 }
 
+public class CharacterInfo
+{
+    public string identifier;
+    public int speed;
+    public int hp;
+    public string sprite;
+
+}
 public class LevelDesignInfo
 {
     public int identifier;
@@ -27,7 +35,9 @@ public class LevelDesignInfo
 public class CSVLoader : Singleton<CSVLoader>
 {
     public Dictionary<string, CardInfo> cardDict = new Dictionary<string, CardInfo>();
+    public Dictionary<string, CharacterInfo> characterDict = new Dictionary<string, CharacterInfo>();
     public Dictionary<int, LevelInfo> levelDict = new Dictionary<int, LevelInfo>();
+    
 public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<int, List<LevelDesignInfo>>();
     public void Init()
     {
@@ -53,6 +63,12 @@ public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<i
                 levelDesignDict[info.identifier] = new List<LevelDesignInfo>();
             }
             levelDesignDict[info.identifier].Add(info);
+        }
+        var characterInfos =
+            CsvUtil.LoadObjects<CharacterInfo>(GetFileNameWithABTest("character"));
+        foreach (var info in characterInfos)
+        {
+            characterDict[info.identifier]=info;
         }
     }
     

@@ -1,4 +1,4 @@
-﻿identifier,actions
-infect,infect|2
-sneeze,sneeze|2
-touch,touch|3
+﻿identifier,speed,hp,sprite
+businessman,3,1,BUSINESSMAN-Walk-SpriteSheet
+doctor,2,3,DOCTOR-Walk-SpriteSheet
+student,2,2,STUDENT-Walk-SpriteSheet

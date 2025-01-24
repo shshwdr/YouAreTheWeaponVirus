@@ -14,6 +14,22 @@ public class Human : MonoBehaviour
     public GameObject sneezePrefab;
 
     public bool isInfected = false;
+    public CharacterInfo info;
+
+    public int HP => info.hp;
+    public int currentHp = 0;
+    
+    float[] speedAdjust = new float[]
+    {
+        0,1,1.5f,2,2.5f
+    };
+    public void Init(string type)
+    {
+        info = CSVLoader.Instance.characterDict[type];
+        GetComponent<HumanAI>().speed *= speedAdjust[info.speed];
+        currentHp = HP;
+        GetComponent<CharacterRenderController>().Init(info);
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,7 +44,8 @@ public class Human : MonoBehaviour
 
     public void Infect(CardInfo cardInfo)
     {
-        renderer.color = Color.green;
+       // renderer.color = Color.green;
+       GetComponent<CharacterRenderController>().GetInfected(1);
         isInfected = true;
         EventPool.Trigger("Infect");
 
