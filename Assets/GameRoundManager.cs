@@ -78,6 +78,9 @@ public class GameRoundManager : Singleton<GameRoundManager>
             {
                 FindObjectOfType<CardSelectionMenu>().Show();
             }
+            
+            
+            HandManager.Instance.ClearBattleHand();
             return;
         }
         timer -= Time.deltaTime;
@@ -85,6 +88,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
         if (timer <= 0)
         {
             FindObjectOfType<WinLoseMenu>().ShowLose();
+            HandManager.Instance.ClearBattleHand();
         }
         
         

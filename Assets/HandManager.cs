@@ -20,6 +20,12 @@ public class HandManager : Singleton<HandManager>
         handInBattle = deck.ToList();
         EventPool.Trigger("DrawHand");
     }
+
+    public void ClearBattleHand()
+    {
+        handInBattle.Clear();
+        EventPool.Trigger("DrawHand");
+    }
     public void AddCard(CardInfo info)
     {
         hand.Add(info);
