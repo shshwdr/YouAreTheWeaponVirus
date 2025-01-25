@@ -1,4 +1,7 @@
-﻿identifier,actions
-infect,infect|2
-sneeze,sneeze|2
-touch,touch|3
+﻿identifier,actions,start
+infect,infect|2,1
+sneeze,sneeze|2,1
+touch,touch|3,
+pushAway(WIP,,
+infectSquarrel(WIP,,
+infectBird(WIP,,

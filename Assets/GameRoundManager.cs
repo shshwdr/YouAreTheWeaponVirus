@@ -75,6 +75,27 @@ public class GameRoundManager : Singleton<GameRoundManager>
         {
             RestartLevel();
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (isMaxLevel)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                GoToNextLevel();
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentLevel > 1)
+            {
+                currentLevel--;
+                StartLevel();
+            }
+        }
     }
     public void RestartLevel()
     {

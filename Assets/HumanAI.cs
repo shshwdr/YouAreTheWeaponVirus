@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Pathfinding;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -50,7 +51,23 @@ public class HumanAI : MonoBehaviour
             Debug.LogError("No active AstarPath found in the scene.");
             return;
         }
-        FindNextRandomPath();
+        
+        switch (GetComponent<Human>().levelDesignInfo.move[0])
+        {
+            case "random":
+                break;
+            case "patrol":
+                var patrolPoints = GetComponent<Human>().levelDesignInfo.move.ToList();
+                patrolPoints.RemoveAt(0);
+                
+                    var patrolId = patrolPoints[patrolIndex];
+                transform.position = HumanSpawner.Instance.GetPoint(patrolId);
+                break;
+            case "idle":
+                break;
+        }
+        
+        FindNextPath();
     }
 
     private void Update()
@@ -64,7 +81,7 @@ public class HumanAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count) //reach the end of the current path
         {
             isMoving = false;
-            FindNextRandomPath();
+            FindNextPath();
             isEscaping = false;
             isRunningAway = false;
             return;
@@ -114,6 +131,37 @@ public class HumanAI : MonoBehaviour
     //     isEscaping = true;
     //     FindNextRandomPath();
     // }
+    private int patrolIndex = 0;
+    public void FindNextPath()
+    {
+        switch (GetComponent<Human>().levelDesignInfo.move[0])
+        {
+            case "random":
+                FindNextRandomPath();
+                break;
+            case "patrol":
+                var patrolPoints = GetComponent<Human>().levelDesignInfo.move.ToList();
+                patrolPoints.RemoveAt(0);
+                for (int i = 1; i < patrolPoints.Count; i++)
+                {
+                    patrolIndex++;
+                    if (patrolIndex >= patrolPoints.Count)
+                    {
+                        patrolIndex = 0;
+                    }
+
+                    var patrolId = patrolPoints[patrolIndex];
+                    
+                    if (MoveToPosition(HumanSpawner.Instance.GetPoint(patrolId)))
+                    {
+                        break;
+                    }
+                }
+                break;
+            case "idle":
+                break;
+        }
+    }
     public void FindNextRandomPath()
     {
 
@@ -189,6 +237,21 @@ public class HumanAI : MonoBehaviour
        
     }
 
+    bool MoveToPosition(Vector3 position)
+    {
+        
+        GraphNode startNode = astar.GetNearest(transform.position).node;
+        GraphNode endNode = astar.GetNearest(position).node;
+        bool isPathPossible = PathUtilities.IsPathPossible(startNode, endNode);
+        if (isPathPossible)
+        {
+            seeker.StartPath(transform.position, position, OnPathComplete);
+            return true;
+        }
+
+        return false;
+    }
+
     private float collectDistance = 5;
     private float knifeSearchDistance = 10;
 
@@ -202,7 +265,7 @@ public class HumanAI : MonoBehaviour
     {
         
         seeker.CancelCurrentPathRequest();
-        FindNextRandomPath();
+        FindNextPath();
     }
     
     public void OnPathComplete(Path p)

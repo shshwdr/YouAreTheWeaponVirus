@@ -7,9 +7,17 @@ public class HumanSpawner : Singleton<HumanSpawner>
     public List<Human> humans = new List<Human>();
 
     public GameObject humanPrefab;
+    public Transform levelParent;
+
+    public Vector3 GetPoint(string index)
+    {
+        var points = levelParent.Find("points");
+        return points.Find(index).transform.position;
+    }
     // Start is called before the first frame update
     public void Init(Transform levelParent)
     {
+        this.levelParent = levelParent;
         foreach (var human in humans)
         {
             Destroy(human.gameObject);
@@ -22,7 +30,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
             var position =
                 GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
             var human = Instantiate(humanPrefab, position, Quaternion.identity,transform);
-            human.GetComponent<Human>().Init(levelDesignInfo.type);
+            human.GetComponent<Human>().Init(levelDesignInfo);
             humans.Add(human.GetComponent<Human>());
         }
         

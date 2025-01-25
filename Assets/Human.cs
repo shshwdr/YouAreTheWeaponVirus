@@ -18,14 +18,16 @@ public class Human : MonoBehaviour
 
     public int HP => info.hp;
     public int currentHp = 0;
-    
+    public LevelDesignInfo levelDesignInfo;
+    public bool isRandomMove=>levelDesignInfo.move == null || levelDesignInfo.move.Count==0 ||levelDesignInfo.move.Contains("random");
     float[] speedAdjust = new float[]
     {
         0,1,1.5f,2,2.5f
     };
-    public void Init(string type)
+    public void Init(LevelDesignInfo designInfo)
     {
-        info = CSVLoader.Instance.characterDict[type];
+        levelDesignInfo = designInfo;
+        info = CSVLoader.Instance.characterDict[designInfo.type];
         GetComponent<HumanAI>().speed *= speedAdjust[info.speed];
         currentHp = HP;
         GetComponent<CharacterRenderController>().Init(info);
@@ -39,7 +41,7 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastPosition == transform.position)
+        if (isRandomMove && lastPosition == transform.position)
         {
             staticTimer += Time.deltaTime;
             if (staticTimer >= staticTime)
