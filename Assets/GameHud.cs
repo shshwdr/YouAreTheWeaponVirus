@@ -21,6 +21,11 @@ public class GameHud : MonoBehaviour
         UpdateLevel();
     }
 
+    public void UpdateAll()
+    {
+        UpdateLevel();
+        UpdateInfect();
+    }
     public void UpdateLevel()
     {
          day.text = "Day " + GameRoundManager.Instance.currentLevel;

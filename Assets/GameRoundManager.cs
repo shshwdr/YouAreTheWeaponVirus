@@ -44,6 +44,8 @@ public class GameRoundManager : Singleton<GameRoundManager>
         levelController = GetComponentInChildren<LevelController>();
         levelController.Init();
         FindObjectOfType<WinLoseMenu>().Hide();
+
+        FindObjectOfType<GameHud>().UpdateAll();
     }
 
     // Update is called once per frame
@@ -80,7 +82,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
         {
             if (isMaxLevel)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                StartLevel();
             }
             else
             {
