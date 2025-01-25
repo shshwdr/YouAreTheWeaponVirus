@@ -255,6 +255,7 @@ MonoBehaviour:
   renderer: {fileID: 3266298898249780280}
   sneezePrefab: {fileID: 2109291071237644040, guid: d50fe12c30a8e784db634e35ec0750a0, type: 3}
   isInfected: 0
+  currentHp: 0
 --- !u!58 &5661279183808351400
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -375,7 +376,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2000020587
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 910110974, guid: b1582f7c19b717f4d9cfaacca2eaa794, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

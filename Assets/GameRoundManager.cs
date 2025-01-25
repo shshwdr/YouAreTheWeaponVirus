@@ -22,18 +22,21 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public void GoToNextLevel()
     {
         currentLevel++;
+        
+        isFinished = false;
         StartLevel();
     }
 
     public void Restart()
     {
         currentLevel = 1;
+        //HandManager.Instance.Init();
         StartLevel();
     }
     public void StartLevel()
     {
         isStarted = true;
-        
+        isFinished = false;
         foreach (Transform trans in tempTrans)
         {
             Destroy(trans.gameObject);
@@ -44,8 +47,11 @@ public class GameRoundManager : Singleton<GameRoundManager>
         levelController = GetComponentInChildren<LevelController>();
         levelController.Init();
         FindObjectOfType<WinLoseMenu>().Hide();
+        FindObjectOfType<CardSelectionMenu>().Hide();
 
         FindObjectOfType<GameHud>().UpdateAll();
+        HandManager.Instance.InitDeck();
+        HandManager.Instance.DrawHand();
     }
 
     // Update is called once per frame
@@ -62,7 +68,16 @@ public class GameRoundManager : Singleton<GameRoundManager>
             
         if (HumanSpawner.Instance.isAllAffected())
         {
-            FindObjectOfType<WinLoseMenu>().ShowWin();
+            isFinished = true;
+            if (isMaxLevel)
+            {
+                
+                FindObjectOfType<WinLoseMenu>().ShowWin();
+            }
+            else
+            {
+                FindObjectOfType<CardSelectionMenu>().Show();
+            }
             return;
         }
         timer -= Time.deltaTime;
@@ -73,6 +88,10 @@ public class GameRoundManager : Singleton<GameRoundManager>
         }
         
         
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HumanSpawner.Instance.InfectAll();
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();

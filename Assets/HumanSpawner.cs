@@ -60,14 +60,6 @@ public class HumanSpawner : Singleton<HumanSpawner>
             human.Infect(null);
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            InfectAll();
-        }
-    }
 
     public bool isAllAffected()
     {

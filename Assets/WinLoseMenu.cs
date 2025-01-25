@@ -13,11 +13,14 @@ public class WinLoseMenu : MenuBase
 
     public Button restartGame;
 
+    public TMP_Text dialogue;
+
     public Button nextLevel;
 
     public void ShowWin()
     {
         title.text = "You Win!";
+        dialogue.text = "How Nice. You are my best weapon.";
 
         if (!GameRoundManager.Instance.isMaxLevel)
         {
@@ -34,6 +37,7 @@ public class WinLoseMenu : MenuBase
     {
         nextLevel.gameObject.SetActive(false);
         title.text = "You Lose!";
+        dialogue.text = "You Lose? What a pity... Try again?";
         Show();
     }
     // Start is called before the first frame update

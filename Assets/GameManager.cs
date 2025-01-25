@@ -13,7 +13,13 @@ public class GameManager : Singleton<GameManager>
     void Awake()
     {
         CSVLoader.Instance.Init();
-        GameRoundManager.Instance.StartLevel();
+        RestartGame();
+    }
+
+    public void RestartGame()
+    {
+        HandManager.Instance.Init();
+        GameRoundManager.Instance.Restart();
     }
     // Update is called once per frame
     void Update()

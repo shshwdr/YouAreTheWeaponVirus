@@ -14,16 +14,18 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
 
     public bool isDraggable = true;
     public TMP_Text text;
+    public TMP_Text desc;
     
     private GameObject selectionCircle;
     public GameObject selectionCirclePrefab;
 
-    private CardInfo cardInfo;
+    public CardInfo cardInfo;
 
     public void Init(CardInfo info)
     {
         cardInfo = info;
-        text.text = cardInfo.identifier;
+        text.text = cardInfo.title;
+        desc.text = cardInfo.desc;
     }
     // Start is called before the first frame update
     void Start()

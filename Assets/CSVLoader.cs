@@ -7,6 +7,11 @@ public class CardInfo
 {
     public string identifier;
     public List<string> actions;
+    public int start;
+    public string title;
+    public string desc;
+    public bool canDraw;
+
 }
 
 public class LevelInfo
