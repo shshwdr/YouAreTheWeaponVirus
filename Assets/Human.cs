@@ -112,7 +112,8 @@ public class Human : MonoBehaviour
     public void Sneeze(CardInfo cardInfo)
     {
         var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
-        
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_man_sneeze");
     }
 
     private Vector3 lastPosition;

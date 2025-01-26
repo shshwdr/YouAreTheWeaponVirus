@@ -20,13 +20,14 @@ MonoBehaviour:
     Data4: 117532128
   Banks:
   - {fileID: 812841852412844100}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 2251648595145647366}
   MinDistance: 1
   MaxDistance: 20
-  Length: 62000
+  Length: 94333
 --- !u!114 &-3244253801142759809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +43,10 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638731880082046399
+  lastModified: 638735045097453926
   FileSizes:
   - Name: Desktop
-    Value: 834
+    Value: 940
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -65,12 +66,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -7807410738558669358}
   - {fileID: 3403496614984529338}
+  - {fileID: 3532101015980706556}
   EditorParameters: []
   MasterBanks:
   - {fileID: 812841852412844100}
   StringsBanks:
   - {fileID: -3244253801142759809}
-  cacheTime: 638731880082046399
+  cacheTime: 638735045097453926
   cacheVersion: 131622
 --- !u!114 &812841852412844100
 MonoBehaviour:
@@ -87,10 +89,38 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638731880082046399
+  lastModified: 638735045097413944
   FileSizes:
   - Name: Desktop
-    Value: 833536
+    Value: 997440
+  Exists: 1
+--- !u!114 &2251648595145647366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/music_gameplay/Game State
+  m_EditorClassIdentifier: 
+  Name: Game State
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 927011089
+    data2: 1491985149
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Menu
+  - Gameplay
+  - Win
+  - Lose
   Exists: 1
 --- !u!114 &3403496614984529338
 MonoBehaviour:
@@ -118,4 +148,31 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 133
+  Length: 1000
+--- !u!114 &3532101015980706556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_man_sneeze
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_man_sneeze
+  Guid:
+    Data1: -89108423
+    Data2: 1196679289
+    Data3: -1328744301
+    Data4: -1870081473
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
