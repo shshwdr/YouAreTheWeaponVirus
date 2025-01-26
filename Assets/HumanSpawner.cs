@@ -57,7 +57,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
     {
         foreach (var human in humans)
         {
-            human.Infect(null);
+            human.InfectFull();
         }
     }
 

@@ -13,10 +13,12 @@ public class CharacterRenderController : MonoBehaviour
     private float swapFrameTimer = 0;
 
     CharacterRenderer[] renderers;
+
+    public GameObject infectedObject;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
     {
-        renderers[1].gameObject.SetActive(true);
+        infectedObject.SetActive(true);
     }
 
     private Vector2 lastPosition;

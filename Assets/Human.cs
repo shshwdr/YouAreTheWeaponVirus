@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Pool;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +13,10 @@ public class Human : MonoBehaviour
     public SpriteRenderer renderer;
 
     public GameObject sneezePrefab;
-
+    private LevelAsIcons hpBar;
+    private float immunityTime = 2f;
+    private float immunityTimer = 0;
+    public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
 
@@ -31,6 +35,8 @@ public class Human : MonoBehaviour
         GetComponent<HumanAI>().speed *= speedAdjust[info.speed];
         currentHp = HP;
         GetComponent<CharacterRenderController>().Init(info);
+        hpBar = GetComponentInChildren<LevelAsIcons>();
+        hpBar.Init(currentHp, HP);
     }
     // Start is called before the first frame update
     void Awake()
@@ -41,6 +47,7 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        immunityTimer+= Time.deltaTime;
         if (isRandomMove && lastPosition == transform.position)
         {
             staticTimer += Time.deltaTime;
@@ -55,16 +62,53 @@ public class Human : MonoBehaviour
         
     }
 
+    public void InfectFull()
+    {
+        isInfected = true;
+        EventPool.Trigger("Infect");
+        hpBar.gameObject.SetActive(false);
+        // renderer.color = Color.green;
+        GetComponent<CharacterRenderController>().GetInfected(1);
+    }
     public void Infect(CardInfo cardInfo)
     {
-       // renderer.color = Color.green;
-       GetComponent<CharacterRenderController>().GetInfected(1);
-        isInfected = true;
+        if (immunityTimer < immunityTime)
+        {
+            return;
+        }
+
+        if (isInfected)
+        {
+            return;
+        }
+
+       currentHp -= 1;
+       hpBar.Init(currentHp, HP);
+       immunityTimer = 0;
+       var color = imunityRenderer.color;
+       color.a = 0.5f;
+       imunityRenderer.color = color;
+       imunityRenderer.DOFade(1, immunityTime/4f).SetLoops(4, LoopType.Yoyo);
+       StartCoroutine(resetImmunityRenderer());
+       if (currentHp <= 0)
+       {
+
+           InfectFull();
+       }
+       
         EventPool.Trigger("Infect");
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_human_infected");
     }
 
+    IEnumerator resetImmunityRenderer()
+    {
+        yield return new WaitForSeconds(immunityTime);
+        var color = imunityRenderer.color;
+        color.a = 0f;
+        imunityRenderer.color = color;
+    }
+    
     public void Sneeze(CardInfo cardInfo)
     {
         var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
