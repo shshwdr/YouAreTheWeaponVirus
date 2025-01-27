@@ -41,6 +41,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     
     public void StartLevel()
     {
+        HandsView.Instance.gameObject.SetActive(true);
         isStarted = true;
         isFinished = false;
         foreach (Transform trans in tempTrans)

@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-public class CardVisualize : MonoBehaviour, IPointerDownHandler
+public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHandler,IPointerExitHandler
 {
 
     public Image image;
@@ -19,7 +19,13 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
     private GameObject selectionCircle;
     public GameObject selectionCirclePrefab;
 
+
+    public Transform hoverTrans;
+    Vector3 startPos;
+    private Vector3 hoverPos;
+
     public CardInfo cardInfo;
+    public bool setPosition;
 
     public void Init(CardInfo info)
     {
@@ -30,9 +36,16 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(setposition());
     }
 
+    IEnumerator setposition()
+    {
+        yield return new WaitForSeconds(0.01f);
+        setPosition = true;
+        startPos = transform.position;
+        hoverPos = hoverTrans.position;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -66,6 +79,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
         contactFilter.useTriggers = true;  // 允许触发器参与检测
         int count = selectionCircle.GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
+        HandManager.Instance.useCard(cardInfo);
+        
         for (int i = 0; i < count; i++)
         {
             Debug.Log($"Overlapping with: {results[i].name}");
@@ -104,5 +119,22 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
         //Destroy(gameObject);
     }
 
-    
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!setPosition|| !isDraggable)
+        {
+            return;
+        }
+        transform.position = hoverPos;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!setPosition || !isDraggable)
+        {
+            return;
+        }
+         transform.position = startPos;
+    }
 }

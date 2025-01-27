@@ -3,11 +3,10 @@
 1,elder,area1,random
 1,elder,area1,random
 1,elder,area2,random
-2,businessman,area1,idle
-2,businessman,area1,random|area1
-2,businessman,area2,random|area2
-2,businessman,area2,random|area2
-2,doctor,area1,patrol|1|2
+2,student,area1,random
+2,elder,area1,random
+2,student,area2,random
+2,elder,area2,random
 3,samuri,area1,random
 3,squirrel,area1,random
 3,bird,area2,random

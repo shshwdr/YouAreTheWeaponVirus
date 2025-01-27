@@ -33,6 +33,7 @@ public class DialogueMenu : MenuBase
     public override void Show()
     {
         base.Show();
+        HandsView.Instance.gameObject.SetActive(false);
         var dialogue = CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevel];
         if (dialogue.Count == 0)
         {

@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using Pool;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HandsView : MonoBehaviour
+public class HandsView : Singleton<HandsView>
 {
     public Transform parent;
 
     public CardVisualize cardPrefab;
+    private int drawTime = 10;
+    private float drawTimer = 0;
+    public Button drawButton;
+
+    public TMP_Text drawTimeText;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +25,21 @@ public class HandsView : MonoBehaviour
         //     go.GetComponent<CardVisualize>().Init(info);
         // }
         EventPool.OptIn("DrawHand", UpdateHands);
+        UpdateHands();
+        drawButton.onClick.AddListener(() =>
+        {
+            DrawCard();
+        });
+    }
+
+    public void DrawCard()
+    {
+        if (drawTimer > 0)
+        {
+            return;
+        }
+        drawTimer = drawTime;
+        HandManager.Instance.DrawHand();
         UpdateHands();
     }
     
@@ -36,6 +59,12 @@ public class HandsView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        drawTimer-= Time.deltaTime;
+        drawButton.interactable = drawTimer <= 0;
+        drawTimeText.gameObject.SetActive(drawTimer > 0);
+        if (drawTimer > 0)
+        {
+            drawTimeText.text = (math.ceil(drawTimer)).ToString();
+        }
     }
 }

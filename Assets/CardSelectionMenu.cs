@@ -18,6 +18,8 @@ public class CardSelectionMenu : MenuBase
     public override void Show()
     {
         base.Show();
+        
+        HandsView.Instance.gameObject.SetActive(false);
         var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw).ToList();
         for (int i = 0; i < 3; i++)
         {

@@ -11,7 +11,7 @@ public class CardInfo
     public string title;
     public string desc;
     public bool canDraw;
-
+    public bool exhaust;
 }
 
 public class LevelInfo

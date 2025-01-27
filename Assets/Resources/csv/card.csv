@@ -1,7 +1,7 @@
-﻿identifier,actions,start,title,desc,canDraw
-infect,infect|2,1,Infect,"Infect humans in a circle, can use once per day",
-sneeze,sneeze|2,1,Sneeze,infected human in a circle create a circle that would infect others,1
-touch,touch|3,1,Touch,infected human in a circle would infect next 3 person he touches,1
-pushAway(WIP,,,Push Away,WIP,1
-infectSquarrel(WIP,,,,,
-infectBird(WIP,,,,,
+﻿identifier,actions,start,title,desc,canDraw,exhaust
+infect,infect|2,1,Infect,"Infect humans in a circle, can use once per day",,1
+sneeze,sneeze|2,1,Sneeze,infected human in a circle create a circle that would infect others,1,
+touch,touch|3,0,Touch,infected human in a circle would infect next 3 person he touches,1,
+pushAway(WIP,,,Push Away,WIP,1,
+infectSquarrel(WIP,,,,,,
+infectBird(WIP,,,,,,
