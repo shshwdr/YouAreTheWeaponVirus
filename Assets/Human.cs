@@ -26,7 +26,7 @@ public class Human : MonoBehaviour
     public bool isRandomMove=>levelDesignInfo.move == null || levelDesignInfo.move.Count==0 ||levelDesignInfo.move.Contains("random");
     float[] speedAdjust = new float[]
     {
-        0,1,1.5f,2,2.5f
+        0,1,1.5f,2,2.5f,3,3.5f
     };
     public void Init(LevelDesignInfo designInfo)
     {

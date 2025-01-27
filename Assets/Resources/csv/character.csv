@@ -1,4 +1,7 @@
-﻿identifier,speed,hp,sprite
-businessman,3,1,BUSINESSMAN-Walk-SpriteSheet
-doctor,2,3,DOCTOR-Walk-SpriteSheet
-student,2,2,STUDENT-Walk-SpriteSheet
+﻿identifier,speed,hp,sprite,characterType
+businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human
+doctor,2,3,DOCTOR-Walk-SpriteSheet,human
+student,2,2,STUDENT-Walk-SpriteSheet,human
+samuri,2,3,SAMURAI-Walk-SpriteSheet,human
+squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel
+bird,5,1,BIRD-Walk-SpriteSheet,bird

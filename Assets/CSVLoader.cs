@@ -27,6 +27,7 @@ public class CharacterInfo
     public int speed;
     public int hp;
     public string sprite;
+    public string characterType;
 
 }
 public class LevelDesignInfo
