@@ -53,6 +53,10 @@ public class CharacterRenderController : MonoBehaviour
 
     void updateFrame()
     {
+        if (characterType == "bin")
+        {
+            return;
+        }
         int frameMax = 4;
         switch (characterType)
         {
@@ -78,11 +82,19 @@ public class CharacterRenderController : MonoBehaviour
     }
     void Update()
     {
+        if (characterType == "bin")
+        {
+            return;
+        }
         updateFrame();
         ChangeSprite(currentDirection);  // 切换精灵
     }
     public void UpdateDir(Vector3 dir)
     {
+        if (characterType == "bin")
+        {
+            return;
+        }
         // 获取当前位置与上次位置的差向量
        // var dir = (Vector2)transform.position - lastPosition;
         // 计算当前方向
@@ -143,6 +155,10 @@ Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " c
     // 根据方向切换精灵帧
     void ChangeSprite(int direction)
     {
+        if (characterType == "bin")
+        {
+            return;
+        }
         // 计算当前精灵的索引
         int spriteIndex = 0;
         switch (characterType)

@@ -13,6 +13,7 @@ public class Human : MonoBehaviour
     public SpriteRenderer renderer;
 
     public GameObject sneezePrefab;
+    public GameObject explodePrefab;
     private LevelAsIcons hpBar;
     private float immunityTime = 2f;
     private float immunityTimer = 0;
@@ -20,6 +21,8 @@ public class Human : MonoBehaviour
     public bool isInfected = false;
     public CharacterInfo info;
     public bool isHuman => info.characterType == "human";
+    public bool isBin => info.characterType == "bin";
+    public bool isAnimal=> info.characterType == "bird" || info.characterType == "squirrel";
     
     
     private Vector3 lastPosition;
@@ -129,6 +132,12 @@ public class Human : MonoBehaviour
         var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_man_sneeze");
+    }
+    
+    public void Explode(CardInfo cardInfo,float radius)
+    {
+        var go = Instantiate(explodePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
+        go.GetComponent<ExplodeArea>().Init(radius);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

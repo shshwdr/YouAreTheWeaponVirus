@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 3266298898249780280}
   sneezePrefab: {fileID: 2109291071237644040, guid: d50fe12c30a8e784db634e35ec0750a0, type: 3}
+  explodePrefab: {fileID: 2109291071237644040, guid: 4b29e9284c472104fbe4c18aec5d60c2, type: 3}
   imunityRenderer: {fileID: 1859093592446410044}
   isInfected: 0
   currentHp: 0

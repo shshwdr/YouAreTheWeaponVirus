@@ -34,7 +34,8 @@ public class DialogueMenu : MenuBase
     {
         base.Show();
         HandsView.Instance.gameObject.SetActive(false);
-        var dialogue = CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevel];
+        
+        var dialogue = CSVLoader.Instance.dialogueDict.GetValueOrDefault(GameRoundManager.Instance.currentLevel, new List<DialogueInfo>());
         if (dialogue.Count == 0)
         {
             hideDialogue();

@@ -91,13 +91,34 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 {
                     case "infect":
                         
-                        results[i].GetComponent<Human>().Infect(cardInfo);
+                        human.Infect(cardInfo);
+                        break;
+                    case "infectInanimated":
+                        if (human.isBin)
+                        {
+                            human.Infect(cardInfo);
+                        }
+
+                        break;
+                    case "infectAnimal":
+                        if (human.isAnimal)
+                        {
+                            human.Infect(cardInfo);
+                        }
                         break;
                     case "sneeze":
-                        if (human.isInfected)
+                        if (human.isHuman &&  human.isInfected)
                         {
                             
                             results[i].GetComponent<Human>().Sneeze(cardInfo);
+                        }
+                        break;
+                    case "explodeBin":
+                        
+                        if (human.isBin &&  human.isInfected)
+                        {
+                            
+                            results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                         }
                         break;
                     case "touch":

@@ -24,13 +24,23 @@ public class HumanSpawner : Singleton<HumanSpawner>
         }
         humans.Clear();
         var area = levelParent.Find("areas");
+        var points = levelParent.Find("points");
 
         foreach (var levelDesignInfo in CSVLoader.Instance.levelDesignDict[GameRoundManager.Instance.currentLevel])
         {
-            var position =
-                GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
+            var  info = CSVLoader.Instance.characterDict[levelDesignInfo.type];
+            Vector2 position;
+            if (info.characterType == "bin")
+            {
+                position = points.Find(levelDesignInfo.spawn).position;
+            }
+            else
+            {
+                
+                position =GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
+            }
             
-           var  info = CSVLoader.Instance.characterDict[levelDesignInfo.type];
+            
            var humanPrefab = Resources.Load<GameObject>("characterPrefab/" + info.prefab);
             var human = Instantiate(humanPrefab, position, Quaternion.identity,transform);
             human.GetComponent<Human>().Init(levelDesignInfo);

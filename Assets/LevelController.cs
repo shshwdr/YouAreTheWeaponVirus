@@ -13,7 +13,14 @@ public class LevelController : MonoBehaviour
         }
         var level = levelParent.Find("level"+GameRoundManager.Instance.currentLevel);
         level .gameObject.SetActive(true);
+        level.transform.position = Vector3.zero;
         
+         StartCoroutine(generate(level));
+    }
+
+    IEnumerator generate(Transform level)
+    {
+        yield return new WaitForSeconds(0.01f);
         
         HumanSpawner.Instance.Init(level);
         AstarPath pathfinder = AstarPath.active;

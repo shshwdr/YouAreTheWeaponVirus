@@ -11,6 +11,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public float levelTime = 3;
     public bool isFinished = false;
     public int currentLevel = 1;
+    public int startLevel = 1;
     private LevelController levelController;
 
     public int maxLevel = 0;
@@ -29,7 +30,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
 
     public void Restart()
     {
-        currentLevel = 1;
+        currentLevel = startLevel;
         //HandManager.Instance.Init();
         ShowDialogue();
     }
@@ -42,7 +43,6 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public void StartLevel()
     {
         HandsView.Instance.gameObject.SetActive(true);
-        isStarted = true;
         isFinished = false;
         foreach (Transform trans in tempTrans)
         {
@@ -59,11 +59,51 @@ public class GameRoundManager : Singleton<GameRoundManager>
         FindObjectOfType<GameHud>().UpdateAll();
         HandManager.Instance.InitDeck();
         HandManager.Instance.DrawHand();
+        StartCoroutine(waitToStart());
     }
 
+    IEnumerator waitToStart()
+    {
+         yield return new WaitForSeconds(0.1f);
+        isStarted = true;
+    }
+
+    void Cheat()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HumanSpawner.Instance.InfectAll();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (isMaxLevel)
+            {
+                ShowDialogue();
+            }
+            else
+            {
+                GoToNextLevel();
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentLevel > 1)
+            {
+                currentLevel--;
+                ShowDialogue();
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        Cheat();
         if (!isStarted)
         {
             return;
@@ -99,35 +139,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
         }
         
         
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            HumanSpawner.Instance.InfectAll();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartLevel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (isMaxLevel)
-            {
-                ShowDialogue();
-            }
-            else
-            {
-                GoToNextLevel();
-            }
-        }
         
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (currentLevel > 1)
-            {
-                currentLevel--;
-                ShowDialogue();
-            }
-        }
     }
     public void RestartLevel()
     {

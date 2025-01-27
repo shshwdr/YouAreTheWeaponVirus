@@ -1,5 +1,10 @@
-﻿level,text,characterInfo
-1,Let's see what you can do.,
-1,Try to infect these elders as your first tast..,elder
-1,This should be easy.,elder
-2,"These children are annoying, get them all.",student
+﻿level,text,characterInfo,,
+1,"Hello there, I’m the all-mighty hive mind. ",,,
+1,Nice to finally meet you.,,,
+1,"Let’s start with something simple. Try to infect these poor, defenseless elders. ",elder,,
+1,"You should be able to do this pretty easily, I hope.",elder,,
+2,"These children are annoying, get them all.",student,,
+2,Don’t tell me you’re getting soft.,student,,
+2,They actually move faster and harder to get infected. So be wise,student,,
+3,See the garbage bin? You can use them wisely. ,,,
+3,"They are not human, but they can be touched to spread spores",,,

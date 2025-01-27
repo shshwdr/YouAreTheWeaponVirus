@@ -22,6 +22,10 @@ public class CharacterRenderer : MonoBehaviour
 
     public void Init(CharacterInfo info)
     {
+        if (info.characterType == "bin")
+        {
+            return;
+        }
         int row = 4;
         int col = 3;
         switch (info.characterType)
