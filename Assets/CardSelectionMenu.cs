@@ -21,6 +21,7 @@ public class CardSelectionMenu : MenuBase
         
         HandsView.Instance.gameObject.SetActive(false);
         var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw).ToList();
+
         for (int i = 0; i < 3; i++)
         {
             var pick = cardsToPick.PickItem();
@@ -33,6 +34,7 @@ public class CardSelectionMenu : MenuBase
                     HandManager.Instance.AddCard(cards[tmpi].cardInfo);
                     Hide();
                     GameRoundManager.Instance.GoToNextLevel();
+
                 }
             );
         }

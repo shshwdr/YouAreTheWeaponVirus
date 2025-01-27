@@ -28,6 +28,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 94333
+--- !u!114 &-4992563723861011356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_touch_infection
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_touch_infection
+  Guid:
+    Data1: 2023247956
+    Data2: 1081724287
+    Data3: -81829189
+    Data4: -123371410
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-3244253801142759809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,10 +70,10 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638735705970254570
+  lastModified: 638735834516458039
   FileSizes:
   - Name: Desktop
-    Value: 940
+    Value: 1026
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -67,12 +94,14 @@ MonoBehaviour:
   - {fileID: -7807410738558669358}
   - {fileID: 3403496614984529338}
   - {fileID: 3532101015980706556}
+  - {fileID: -4992563723861011356}
+  - {fileID: 2139638740726967368}
   EditorParameters: []
   MasterBanks:
   - {fileID: 812841852412844100}
   StringsBanks:
   - {fileID: -3244253801142759809}
-  cacheTime: 638735705970254570
+  cacheTime: 638735834516458039
   cacheVersion: 131622
 --- !u!114 &812841852412844100
 MonoBehaviour:
@@ -89,11 +118,38 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638735705970244565
+  lastModified: 638735834516422930
   FileSizes:
   - Name: Desktop
-    Value: 997440
+    Value: 1029024
   Exists: 1
+--- !u!114 &2139638740726967368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_drag_card
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_drag_card
+  Guid:
+    Data1: -790676635
+    Data2: 1180015237
+    Data3: 2056627860
+    Data4: 730794106
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &2251648595145647366
 MonoBehaviour:
   m_ObjectHideFlags: 0
