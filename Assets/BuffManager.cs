@@ -12,8 +12,11 @@ public enum BuffType
 public class BuffManager 
 {
     public Dictionary<string, int> buffs = new Dictionary<string, int>();
-
-
+    private Human human;
+public BuffManager(Human human)
+{
+    this.human = human;
+}
 
     // public void RemoveBuff(string type, int value)
     // {
@@ -23,6 +26,20 @@ public class BuffManager
     //     }
     //     buffs[type].Remove(value);
     // }
+    public void SetBuff(string type, int value)
+    {
+        
+        if (!buffs.ContainsKey(type))
+        {
+            buffs[type] = 0;
+        }
+        buffs[type]=(value);
+
+        if (type == "touch")
+        {
+            human.touchState.SetState(buffs[type]);
+        }
+    }
     public void AddBuff(string type, int value)
     {
         if (!buffs.ContainsKey(type))
@@ -30,6 +47,11 @@ public class BuffManager
             buffs[type] = 0;
         }
         buffs[type]+=(value);
+
+        if (type == "touch")
+        {
+            human.touchState.SetState(buffs[type]);
+        }
         
         //EventPool.Trigger(EventPoolNames.UpdateBuff);
     }

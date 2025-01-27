@@ -28,6 +28,7 @@ public class CharacterInfo
     public int hp;
     public string sprite;
     public string characterType;
+    public string prefab;
 
 }
 public class LevelDesignInfo

@@ -1,7 +1,7 @@
 ﻿identifier,actions,start,title,desc,canDraw
 infect,infect|2,1,Infect,Infect humans in a circle,
 sneeze,sneeze|2,1,Sneeze,infected human in a circle create a circle that would infect others,1
-touch,touch|3,,Touch,infected human in a circle would infect next 3 person he touches,1
+touch,touch|3,1,Touch,infected human in a circle would infect next 3 person he touches,1
 pushAway(WIP,,,Push Away,WIP,1
 infectSquarrel(WIP,,,,,
 infectBird(WIP,,,,,

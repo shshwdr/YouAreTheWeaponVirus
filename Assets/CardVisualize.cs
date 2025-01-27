@@ -87,7 +87,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler
                         break;
                     case "touch":
                         
-                        results[i].GetComponent<Human>().buffManager.AddBuff("touch",int.Parse(cardInfo.actions[1]));
+                        results[i].GetComponent<Human>().buffManager.SetBuff("touch",int.Parse(cardInfo.actions[1]));
                         break;
                 }
             }

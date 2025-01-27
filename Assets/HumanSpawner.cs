@@ -6,7 +6,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
 {
     public List<Human> humans = new List<Human>();
 
-    public GameObject humanPrefab;
+    //public GameObject humanPrefab;
     public Transform levelParent;
 
     public Vector3 GetPoint(string index)
@@ -29,6 +29,9 @@ public class HumanSpawner : Singleton<HumanSpawner>
         {
             var position =
                 GetRandomPointInBoxCollider(area.Find(levelDesignInfo.spawn).GetComponent<BoxCollider2D>());
+            
+           var  info = CSVLoader.Instance.characterDict[levelDesignInfo.type];
+           var humanPrefab = Resources.Load<GameObject>("characterPrefab/" + info.prefab);
             var human = Instantiate(humanPrefab, position, Quaternion.identity,transform);
             human.GetComponent<Human>().Init(levelDesignInfo);
             humans.Add(human.GetComponent<Human>());

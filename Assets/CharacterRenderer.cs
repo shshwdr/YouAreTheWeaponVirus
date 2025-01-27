@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterRenderer : MonoBehaviour
 {
+    public Texture2D texture;
     public string spriteSheetPath = "character/BASE-Walk-SpriteSheet";  // Resources 文件夹中的精灵图路径
     private Sprite[] walkSprites;  // 存储精灵帧的数组
 
@@ -38,7 +39,10 @@ public class CharacterRenderer : MonoBehaviour
         }
         spriteRenderer = GetComponent<SpriteRenderer>();
         // 从 Resources 文件夹加载完整的 Sprite Sheet
-        Texture2D texture = Resources.Load<Texture2D>(spriteSheetPath);
+        if (texture == null)
+        {
+            texture = Resources.Load<Texture2D>(spriteSheetPath);
+        }
 
         // 分割 Sprite Sheet 成 4 行 3 列的精灵
         walkSprites = new Sprite[row*col]; // 4行 * 3列 = 12帧

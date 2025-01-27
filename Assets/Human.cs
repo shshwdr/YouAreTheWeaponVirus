@@ -23,11 +23,13 @@ public class Human : MonoBehaviour
     public int HP => info.hp;
     public int currentHp = 0;
     public LevelDesignInfo levelDesignInfo;
+    public ImageState touchState;
     public bool isRandomMove=>levelDesignInfo.move == null || levelDesignInfo.move.Count==0 ||levelDesignInfo.move.Contains("random");
     float[] speedAdjust = new float[]
     {
         0,1,1.5f,2,2.5f,3,3.5f
     };
+    
     public void Init(LevelDesignInfo designInfo)
     {
         levelDesignInfo = designInfo;
@@ -35,13 +37,14 @@ public class Human : MonoBehaviour
         GetComponent<HumanAI>().speed *= speedAdjust[info.speed];
         currentHp = HP;
         GetComponent<CharacterRenderController>().Init(info);
-        hpBar = GetComponentInChildren<LevelAsIcons>();
+        hpBar = GetComponentInChildren<LevelAsIcons>(true);
         hpBar.Init(currentHp, HP);
+        touchState.SetState(0);
     }
     // Start is called before the first frame update
     void Awake()
     {
-        buffManager = new BuffManager();
+        buffManager = new BuffManager(this);
     }
 
     // Update is called once per frame

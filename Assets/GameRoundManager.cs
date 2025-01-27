@@ -9,7 +9,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
 
     public float timer;
     public float levelTime = 3;
-    private bool isFinished = false;
+    public bool isFinished = false;
     public int currentLevel = 1;
     private LevelController levelController;
 

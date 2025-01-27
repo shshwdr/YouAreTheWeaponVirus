@@ -15,6 +15,8 @@ public class CharacterRenderController : MonoBehaviour
 
     CharacterRenderer[] renderers;
 
+    public Transform renderersParent;
+
     public GameObject infectedObject;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
@@ -127,10 +129,10 @@ public class CharacterRenderController : MonoBehaviour
 
             if (currentDirection == 2)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                renderersParent.localScale = new Vector3(-1, 1, 1);
             }else if (currentDirection == 1)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                renderersParent.localScale = new Vector3(1, 1, 1);
             }
     }
 Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " currentFrame " + transform.position);

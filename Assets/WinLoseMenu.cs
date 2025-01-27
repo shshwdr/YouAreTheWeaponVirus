@@ -19,6 +19,7 @@ public class WinLoseMenu : MenuBase
 
     public void ShowWin()
     {
+        GameRoundManager.Instance. isFinished = true;
         title.text = "You Win!";
         dialogue.text = "How Nice. You are my best weapon.";
 
@@ -35,6 +36,7 @@ public class WinLoseMenu : MenuBase
     }
     public void ShowLose()
     {
+        GameRoundManager.Instance. isFinished = true;
         nextLevel.gameObject.SetActive(false);
         title.text = "You Lose!";
         dialogue.text = "You Lose? What a pity... Try again?";
