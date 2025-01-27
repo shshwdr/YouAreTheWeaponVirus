@@ -16,5 +16,7 @@ public class LevelController : MonoBehaviour
         
         
         HumanSpawner.Instance.Init(level);
+        AstarPath pathfinder = AstarPath.active;
+        pathfinder.Scan();
     }
 }

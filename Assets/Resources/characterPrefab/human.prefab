@@ -186,7 +186,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8413318007876823946
 MonoBehaviour:
@@ -215,7 +215,7 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -1
+    value: 1
 --- !u!114 &6893165132008908791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.51}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &5548130201996528067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f5fd9fe4690248a61f662ea6660b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 0}
   spriteSheetPath: character/OVERLAY-Infection-Stage3-Walk-SpriteSheet
   spriteRenderer: {fileID: 0}
 --- !u!1 &1744497443668601868
@@ -637,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f5fd9fe4690248a61f662ea6660b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 0}
   spriteSheetPath: character/BASE-Walk-SpriteSheet
   spriteRenderer: {fileID: 0}
 --- !u!114 &5613704611526313288
@@ -964,6 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f5fd9fe4690248a61f662ea6660b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 0}
   spriteSheetPath: character/BASE-Walk-SpriteSheet
   spriteRenderer: {fileID: 0}
 --- !u!1 &7773657136291187580

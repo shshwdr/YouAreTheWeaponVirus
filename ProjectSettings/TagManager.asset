@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - obstacle
-  - 
+  - wall
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: human
     uniqueID: 2000020587
+    locked: 0
+  - name: bird
+    uniqueID: 1617129523
     locked: 0
   - name: UI
     uniqueID: 708239405

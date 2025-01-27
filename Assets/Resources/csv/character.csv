@@ -4,4 +4,4 @@ doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human
 student,2,2,STUDENT-Walk-SpriteSheet,human,human
 samuri,2,3,SAMURAI-Walk-SpriteSheet,human,human
 squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel
-bird,5,1,BIRD-Walk-SpriteSheet,bird,bird
+bird,5,1,BIRD-Fly-SpriteSheet,bird,bird

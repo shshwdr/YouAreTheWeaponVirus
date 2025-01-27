@@ -19,6 +19,14 @@ public class Human : MonoBehaviour
     public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
+    
+    
+    private Vector3 lastPosition;
+    private float staticTime = 1;
+    private float staticTimer;
+
+    private float touchTime = 1;
+    private float touchTimer = 0;
 
     public int HP => info.hp;
     public int currentHp = 0;
@@ -51,6 +59,7 @@ public class Human : MonoBehaviour
     void Update()
     {
         immunityTimer+= Time.deltaTime;
+        touchTimer += Time.deltaTime;
         if (isRandomMove && lastPosition == transform.position)
         {
             staticTimer += Time.deltaTime;
@@ -64,6 +73,8 @@ public class Human : MonoBehaviour
         lastPosition = transform.position;
         
     }
+    
+    public bool canBeInfect=>immunityTimer>=immunityTime;
 
     public void InfectFull()
     {
@@ -119,31 +130,29 @@ public class Human : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_man_sneeze");
     }
 
-    private Vector3 lastPosition;
-    private float staticTime = 1;
-    private float staticTimer;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // 获取碰撞到的物体的名称
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        Debug.Log("Collided with: " + other.gameObject.name);
 
         // 获取碰撞的接触点
-        foreach (var contact in collision.contacts)
-        {
-            Debug.Log("Contact Point: " + contact.point);
-        }
+        // foreach (var contact in other.contacts)
+        // {
+        //     Debug.Log("Contact Point: " + contact.point);
+        // }
 
-        if (isInfected)
+        if (isInfected )
         {
             
-            if (collision.gameObject.GetComponent<Human>())
+            if (other.gameObject.GetComponent<Human>())
             {
             
-                var human = collision.gameObject.GetComponent<Human>();
-                if (!human.isInfected)
+                var human = other.gameObject.GetComponent<Human>();
+                if (!human.isInfected && human.canBeInfect)
                 {
-                    if (buffManager.GetBuffValue("touch") > 0)
+                    if (buffManager.GetBuffValue("touch") > 0&& touchTimer>touchTime)
                     {
+                        touchTimer = 0;
                         buffManager.AddBuff("touch", -1);
                         human.Infect(null);
                     }
