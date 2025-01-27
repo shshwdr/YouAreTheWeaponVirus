@@ -35,6 +35,8 @@ public class CardSelectionMenu : MenuBase
                     Hide();
                     GameRoundManager.Instance.GoToNextLevel();
 
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_select_new_card");
+
                 }
             );
         }

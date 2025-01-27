@@ -70,10 +70,10 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638735834516458039
+  lastModified: 638735941499549079
   FileSizes:
   - Name: Desktop
-    Value: 1026
+    Value: 1110
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -96,12 +96,14 @@ MonoBehaviour:
   - {fileID: 3532101015980706556}
   - {fileID: -4992563723861011356}
   - {fileID: 2139638740726967368}
+  - {fileID: 7239438613361802494}
+  - {fileID: 4807788009402093057}
   EditorParameters: []
   MasterBanks:
   - {fileID: 812841852412844100}
   StringsBanks:
   - {fileID: -3244253801142759809}
-  cacheTime: 638735834516458039
+  cacheTime: 638735941499549079
   cacheVersion: 131622
 --- !u!114 &812841852412844100
 MonoBehaviour:
@@ -118,10 +120,10 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638735834516422930
+  lastModified: 638735941499493815
   FileSizes:
   - Name: Desktop
-    Value: 1029024
+    Value: 1065056
   Exists: 1
 --- !u!114 &2139638740726967368
 MonoBehaviour:
@@ -223,6 +225,60 @@ MonoBehaviour:
     Data2: 1196679289
     Data3: -1328744301
     Data4: -1870081473
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &4807788009402093057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_select_new_card
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_select_new_card
+  Guid:
+    Data1: -156523407
+    Data2: 1169145740
+    Data3: -1504736877
+    Data4: 408869617
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &7239438613361802494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_ui_click
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_ui_click
+  Guid:
+    Data1: 2118311254
+    Data2: 1182640258
+    Data3: 286984126
+    Data4: 481776420
   Banks:
   - {fileID: 812841852412844100}
   IsStream: 0

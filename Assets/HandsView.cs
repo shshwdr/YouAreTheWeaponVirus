@@ -41,6 +41,8 @@ public class HandsView : Singleton<HandsView>
         drawTimer = drawTime;
         HandManager.Instance.DrawHand();
         UpdateHands();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_click");
     }
     
     public void UpdateHands()
