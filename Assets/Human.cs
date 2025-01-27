@@ -19,6 +19,7 @@ public class Human : MonoBehaviour
     public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
+    public bool isHuman => info.characterType == "human";
     
     
     private Vector3 lastPosition;

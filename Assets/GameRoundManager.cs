@@ -24,15 +24,21 @@ public class GameRoundManager : Singleton<GameRoundManager>
         currentLevel++;
         
         isFinished = false;
-        StartLevel();
+        ShowDialogue();
     }
 
     public void Restart()
     {
         currentLevel = 1;
         //HandManager.Instance.Init();
-        StartLevel();
+        ShowDialogue();
     }
+
+    public void ShowDialogue()
+    {
+        FindObjectOfType<DialogueMenu>(true).Show();
+    }
+    
     public void StartLevel()
     {
         isStarted = true;
@@ -105,7 +111,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
         {
             if (isMaxLevel)
             {
-                StartLevel();
+                ShowDialogue();
             }
             else
             {
@@ -118,7 +124,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
             if (currentLevel > 1)
             {
                 currentLevel--;
-                StartLevel();
+                ShowDialogue();
             }
         }
     }

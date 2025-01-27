@@ -29,6 +29,16 @@ public class CharacterInfo
     public string sprite;
     public string characterType;
     public string prefab;
+    public string title;
+    public string desc;
+
+}
+
+public class DialogueInfo
+{
+    public int level;
+    public string text;
+    public string characterInfo;
 
 }
 public class LevelDesignInfo
@@ -44,6 +54,7 @@ public class CSVLoader : Singleton<CSVLoader>
     public Dictionary<string, CardInfo> cardDict = new Dictionary<string, CardInfo>();
     public Dictionary<string, CharacterInfo> characterDict = new Dictionary<string, CharacterInfo>();
     public Dictionary<int, LevelInfo> levelDict = new Dictionary<int, LevelInfo>();
+    public Dictionary<int, List<DialogueInfo>> dialogueDict = new Dictionary<int, List<DialogueInfo>>();
     
 public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<int, List<LevelDesignInfo>>();
     public void Init()
@@ -70,6 +81,16 @@ public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<i
                 levelDesignDict[info.identifier] = new List<LevelDesignInfo>();
             }
             levelDesignDict[info.identifier].Add(info);
+        }
+        var dialogueInfos =
+            CsvUtil.LoadObjects<DialogueInfo>(GetFileNameWithABTest("dialogue"));
+        foreach (var info in dialogueInfos)
+        {
+            if (!dialogueDict.ContainsKey(info.level))
+            {
+                dialogueDict[info.level] = new List<DialogueInfo>();
+            }
+            dialogueDict[info.level].Add(info);
         }
         var characterInfos =
             CsvUtil.LoadObjects<CharacterInfo>(GetFileNameWithABTest("character"));

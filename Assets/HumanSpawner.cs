@@ -81,7 +81,21 @@ public class HumanSpawner : Singleton<HumanSpawner>
         int count = 0;
         foreach (var human in humans)
         {
-            if (human.isInfected)
+            if (human.isInfected && human.isHuman)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int humanCount()
+    {
+        
+        int count = 0;
+        foreach (var human in humans)
+        {
+            if (human.isHuman)
             {
                 count++;
             }

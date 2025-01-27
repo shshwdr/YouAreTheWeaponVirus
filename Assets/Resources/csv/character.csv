@@ -1,7 +1,8 @@
-﻿identifier,speed,hp,sprite,characterType,prefab
-businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human,human
-doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human
-student,2,2,STUDENT-Walk-SpriteSheet,human,human
-samuri,2,3,SAMURAI-Walk-SpriteSheet,human,human
-squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel
-bird,5,1,BIRD-Fly-SpriteSheet,bird,bird
+﻿identifier,title,speed,hp,sprite,characterType,prefab,desc,,
+businessman,businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human,human,,,
+doctor,doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human,,,
+student,STUDENT,2,2,STUDENT-Walk-SpriteSheet,human,human,,,
+samuri,samuri,2,3,SAMURAI-Walk-SpriteSheet,human,human,,,
+squirrel,squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel,,,
+bird,bird,5,1,BIRD-Fly-SpriteSheet,bird,bird,,,
+elder,ELDER,1,1,BUSINESSMAN-Walk-SpriteSheet,human,human,Just old people,,
