@@ -11,7 +11,7 @@ public class CharacterRenderer : MonoBehaviour
     private int currentFrame = 0;     // 当前帧
     
 
-    private float swapFrameTime = 0.3f;
+    private float swapFrameTime = 0.25f;
 
     private float swapFrameTimer = 0;
     public SpriteRenderer spriteRenderer;

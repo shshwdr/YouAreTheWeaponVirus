@@ -189,10 +189,19 @@ public class Human : MonoBehaviour
         {
             return;
         }
-        var go = Instantiate(explodePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
-        go.GetComponent<ExplodeArea>().Init(radius);
+        StartCoroutine(ExplodeEnumerator());
         characterRenderer.explosion.PlayOnce();
         Die();
+    }
+    
+    
+    IEnumerator ExplodeEnumerator()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        var go = Instantiate(explodePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
+        go.GetComponent<ExplodeArea>().Init(1);
+        
     }
 
     public bool isDead = false;
