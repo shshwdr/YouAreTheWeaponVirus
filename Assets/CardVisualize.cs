@@ -158,7 +158,19 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         }
         
         selectionCircle.SetActive(false);
+        ExitCard();
         //Destroy(gameObject);
+    }
+
+    public void Cancel()
+    {
+        foreach (var human in HumanSpawner.Instance.humans)
+        {
+            human.DrawOutline(false);
+        }
+        
+        selectionCircle.SetActive(false);
+        ExitCard();
     }
 
     public void OnDrag()
@@ -248,6 +260,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         //Destroy(gameObject);
     }
 
+    
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -266,6 +279,21 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         {
             return;
         }
-         transform.position = startPos;
+
+        if (PlayerControllerManager.Instance.currentDraggingCell == this)
+        {
+            
+        }
+        else
+        {
+            ExitCard();
+        }
+        
+    }
+
+    public void ExitCard()
+    {
+        
+        transform.position = startPos;
     }
 }

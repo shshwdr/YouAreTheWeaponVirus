@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class PlayerControllerManager : Singleton<PlayerControllerManager>
 {
     private GameObject currentDragging; // 当前正在拖动的 Building
     public Transform uiDropArea; // 取消UI 放置区域
-    CardVisualize cell;
+    [HideInInspector]
+    [FormerlySerializedAs("cell")] public CardVisualize currentDraggingCell;
     // Start is called before the first frame update
     public void StartDragging(GameObject building,CardVisualize cell)
     {
         currentDragging = building;
-        this.cell = cell;
+        this.currentDraggingCell = cell;
+        uiDropArea.gameObject.SetActive(true);
+    }
+
+    void StopDragging()
+    {
+        
+        uiDropArea.gameObject.SetActive(false);
     }
 
     //public HoveredObject hoveredObject;
@@ -88,24 +97,34 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
          {
              if (Input.GetMouseButtonUp(0)) // 左键放下
                  {
-                     if (/*IsInDropArea(mousePosition) ||*/ !canPlace)
+                     if (IsInDropArea(mousePosition) ||!canPlace)
                      {
-                        // // currentBuilding.GetComponent<Building>().LockBuilding();
-                        //  Destroy(currentBuilding);
-                        //  currentBuilding = null; // 取消选择
+                        
+                         currentDraggingCell.Cancel();
+                         StopDragging();
+                         currentDragging = null; // 取消选择
                      }
                      else
                      {
                          //Destroy(currentBuilding);
-                         cell.OnPlace();
+                         currentDraggingCell.OnPlace();
+                         StopDragging();
                          currentDragging = null; // 取消选择
                          //Destroy(cell);
                      }
                  }
              else
              {
-                 
-                 cell.OnDrag();
+                 if (IsInDropArea(mousePosition))
+                 {
+                     uiDropArea.GetComponent<CanvasGroup>().alpha = 1;
+                 }
+                 else
+                 {
+                     
+                     uiDropArea.GetComponent<CanvasGroup>().alpha = 0.5f;
+                 }
+                 currentDraggingCell.OnDrag();
              }
          }
          //  // 更新当前 Building 的位置
