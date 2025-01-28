@@ -8,7 +8,14 @@ public class CharacterRenderer : MonoBehaviour
     public string spriteSheetPath = "character/BASE-Walk-SpriteSheet";  // Resources 文件夹中的精灵图路径
     private Sprite[] walkSprites;  // 存储精灵帧的数组
 
+    private int currentFrame = 0;     // 当前帧
+    
+
+    private float swapFrameTime = 0.3f;
+
+    private float swapFrameTimer = 0;
     public SpriteRenderer spriteRenderer;
+    private int frameMax;
     public void SetSprite(int spriteIndex)
     {
         if (walkSprites != null)
@@ -17,6 +24,40 @@ public class CharacterRenderer : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
             // 设置 Sprite Renderer 的精灵
             spriteRenderer.sprite = walkSprites[spriteIndex];
+        }
+    }
+
+    private bool isPlaying = false;
+    public void PlayOnce()
+    {
+        gameObject.SetActive(true);
+        currentFrame = 0;
+        isPlaying = true;
+    }
+    void updateFrame()
+    {
+        swapFrameTimer += Time.deltaTime;
+        if (swapFrameTimer >= swapFrameTime)
+        {
+            swapFrameTimer -= swapFrameTime;
+            currentFrame = (currentFrame + 1);
+        }
+
+        if (currentFrame >= frameMax)
+        {
+            isPlaying = false;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            SetSprite(currentFrame);
+        }
+    }
+    void Update()
+    {
+        if (isPlaying)
+        {
+            updateFrame();
         }
     }
 
@@ -41,6 +82,18 @@ public class CharacterRenderer : MonoBehaviour
                 col = 3;
                 break;
         }
+
+        setSprites(row, col);
+    }
+
+    public void Init(int col)
+    {
+         setSprites(1,col);
+         frameMax = col;
+    }
+
+    void setSprites(int row,int col)
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
         // 从 Resources 文件夹加载完整的 Sprite Sheet
         if (texture == null)
@@ -65,9 +118,4 @@ public class CharacterRenderer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

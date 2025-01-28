@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 345873038397186971, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 430573042216688740, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Name
       value: bin
@@ -27,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 646331087840077277, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 07a7439d029a021449e186975099c5f4, type: 3}
+      objectReference: {fileID: 21300000, guid: dba2dfae06852ba4facc21308a19fc50, type: 3}
     - target: {fileID: 646331087840077277, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -40,6 +44,10 @@ PrefabInstance:
       propertyPath: spriteSheetPath
       value: Assets/Resources/character/SQUIRRELMUSHROOM-Run-SpriteSheet.png
       objectReference: {fileID: 0}
+    - target: {fileID: 1138582244817780294, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.319996
+      objectReference: {fileID: 0}
     - target: {fileID: 1141822243553486985, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Radius
       value: 0.6
@@ -50,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1141822243553486985, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1199321067293335548, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Layer
@@ -123,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 2121000340328596801, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 07a7439d029a021449e186975099c5f4, type: 3}
+      objectReference: {fileID: 21300000, guid: ddbc9d8da7da97e419f270874a04c963, type: 3}
     - target: {fileID: 2121000340328596801, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -190,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661279183808351400, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Radius
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5661279183808351400, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Offset.x
@@ -198,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661279183808351400, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6327602959679513555, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_BodyType
@@ -215,6 +223,14 @@ PrefabInstance:
     - target: {fileID: 7539983446852348895, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574451206181487158, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574451206181487158, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7773657136291187580, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Layer
@@ -267,6 +283,22 @@ PrefabInstance:
     - target: {fileID: 8433178668334501952, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618528908242008843, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618528908242008843, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921660501847918515, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921660501847918515, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,12 +13,15 @@ public class CharacterRenderController : MonoBehaviour
 
     private float swapFrameTimer = 0;
 
-    CharacterRenderer[] renderers;
+    public CharacterRenderer[] renderers;
 
     public Transform renderersParent;
 
     public GameObject infectedObject;
     public CharacterRenderer mainRenderer;
+
+    public CharacterRenderer explosion;
+    public CharacterRenderer sneeze;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
     {
@@ -32,8 +35,17 @@ public class CharacterRenderController : MonoBehaviour
     public void Init(CharacterInfo info)
     {
         characterType = info.characterType;
-        renderers = GetComponentsInChildren<CharacterRenderer>(true);
+        //renderers = GetComponentsInChildren<CharacterRenderer>(true);
         mainRenderer.spriteSheetPath ="character/"+ info.sprite;
+        
+        
+        explosion.Init(6);
+
+        if (info.sneezeSprite != null && info.sneezeSprite != "")
+        {
+            sneeze.spriteSheetPath ="character/"+ info.sneezeSprite;
+            sneeze.Init(5);
+        }
         
         switch (characterType)
         {

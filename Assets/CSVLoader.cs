@@ -27,6 +27,9 @@ public class CharacterInfo
     public int speed;
     public int hp;
     public string sprite;
+    public string sneezeSprite;
+    public string abilitySprite;
+    
     public string characterType;
     public string prefab;
     public string title;

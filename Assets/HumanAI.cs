@@ -169,53 +169,6 @@ public class HumanAI : MonoBehaviour
         {
             return;
         }
-        // if (GetComponent<RunAwayFromTarget>().shouldRunAway())
-        // {
-        //     GetComponent<RunAwayFromTarget>().UpdatePath();
-        // }
-        
-        // if (GetComponent<HumanAttack>() && GetComponent<HumanAttack>().enabled)
-        // {
-        //     if (GetComponent<HumanAttack>().isAttacking)
-        //     {
-        //         return;
-        //     }
-        //     //if is attacker, find attackable point and move
-        //     Vector3 res;
-        //     var meleeFoundTarget = GetComponent<HumanAttack>().ClosestPosition(out res);
-        //     if (meleeFoundTarget)
-        //     {
-        //         //GraphNode startNode = astar.GetNearest(transform.position).node;
-        //         //GraphNode endNode = astar.GetNearest(res).node;
-        //         //bool isPathPossible = PathUtilities.IsPathPossible(startNode, endNode);
-        //
-        //         //if (isPathPossible)
-        //         {
-        //             seeker.StartPath(transform.position, res, OnPathComplete);
-        //             return;
-        //         }
-        //     }
-        // }
-        // else if(!hasTube)
-        // {
-        //     //if there is knife nearby, fetch it. 
-        //     foreach (var knife in HumanManager.Instance.knifes)
-        //     {
-        //         if ((knife.transform.position - transform.position).magnitude <= knifeSearchDistance)
-        //         {
-        //            // GraphNode startNode = astar.GetNearest(transform.position).node;
-        //            // GraphNode endNode = astar.GetNearest(knife.transform.position).node;
-        //             //bool isPathPossible = PathUtilities.IsPathPossible(startNode, endNode);
-        //             //if (isPathPossible)
-        //             {
-        //                 seeker.StartPath(transform.position, knife.transform.position, OnPathComplete);
-        //             }
-        //         }
-        //     }
-        //     
-        // }
-        // {
-       // Vector3 randomPosition = GetRandomPositionAwayFromTarget(Vector3.zero, 10, 50);
 
         int test = 100;
         while (test-->0)

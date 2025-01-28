@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Pathfinding;
 using Pool;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,7 +22,9 @@ public class Human : MonoBehaviour
     public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
+    private CharacterRenderController characterRenderer;
     public GameObject ouline;
+    private HumanAI ai;
     public bool isHuman => info.characterType == "human";
     public bool isBin => info.characterType == "bin";
     public bool isAnimal=> info.characterType == "bird" || info.characterType == "squirrel";
@@ -46,6 +49,10 @@ public class Human : MonoBehaviour
 
     public void DrawOutline(bool show)
     {
+        if (isDead)
+        {
+            return;
+        }
         ouline.GetComponent<SpriteRenderer>().enabled = (show);
     }
     
@@ -55,10 +62,12 @@ public class Human : MonoBehaviour
         info = CSVLoader.Instance.characterDict[designInfo.type];
         GetComponent<HumanAI>().speed *= speedAdjust[info.speed];
         currentHp = HP;
-        GetComponent<CharacterRenderController>().Init(info);
+        characterRenderer = GetComponent<CharacterRenderController>();
+        characterRenderer.Init(info);
         hpBar = GetComponentInChildren<LevelAsIcons>(true);
         hpBar.Init(currentHp, HP);
         touchState.SetState(0);
+        ai = GetComponent<HumanAI>();
     }
     // Start is called before the first frame update
     void Awake()
@@ -69,6 +78,10 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         immunityTimer+= Time.deltaTime;
         touchTimer += Time.deltaTime;
         if (isRandomMove && lastPosition == transform.position)
@@ -89,6 +102,10 @@ public class Human : MonoBehaviour
 
     public void InfectFull()
     {
+        if (isDead)
+        {
+            return;
+        }
         isInfected = true;
         EventPool.Trigger("Infect");
         hpBar.gameObject.SetActive(false);
@@ -97,6 +114,10 @@ public class Human : MonoBehaviour
     }
     public void Infect(CardInfo cardInfo)
     {
+        if (isDead)
+        {
+            return;
+        }
         if (immunityTimer < immunityTime)
         {
             return;
@@ -133,22 +154,67 @@ public class Human : MonoBehaviour
         color.a = 0f;
         imunityRenderer.color = color;
     }
-    
+
+    private bool isPausedMoving = true;
     public void Sneeze(CardInfo cardInfo)
     {
-        var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
+        if (isDead)
+        {
+            return;
+        }
+       // var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
 
+        ai.StopSeekPath();
+        
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_man_sneeze");
+        characterRenderer.UpdateDir(Vector3.down);
+        characterRenderer.sneeze.PlayOnce();
+        isPausedMoving = true;
+        StartCoroutine(SneezeEnumerator());
+    }
+
+    IEnumerator SneezeEnumerator()
+    {
+        yield return new WaitForSeconds(0.5f);
+        var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
+       
+        isPausedMoving = false;
+        ai.FindNextPath();
+        
     }
     
     public void Explode(CardInfo cardInfo,float radius)
     {
+        if (isDead)
+        {
+            return;
+        }
         var go = Instantiate(explodePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
         go.GetComponent<ExplodeArea>().Init(radius);
+        characterRenderer.explosion.PlayOnce();
+        Die();
+    }
+
+    public bool isDead = false;
+    public void Die()
+    {
+        isDead = true;
+        ai.StopSeekPath();
+        StartCoroutine(Hide());
+    }
+
+    IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(0.5f);
+        characterRenderer.renderersParent.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDead)
+        {
+            return;
+        }
         // 获取碰撞到的物体的名称
         Debug.Log("Collided with: " + other.gameObject.name);
 
@@ -177,6 +243,9 @@ public class Human : MonoBehaviour
             }
         }
 
-        GetComponent<HumanAI>().RestartSeek();
+        if (!isPausedMoving)
+        {
+            GetComponent<HumanAI>().RestartSeek();
+        }
     }
 }

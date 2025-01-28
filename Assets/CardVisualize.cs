@@ -119,6 +119,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                            //human.Hide();
                         }
                         break;
                     case "explodeHuman":
@@ -127,6 +128,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                            //human.Hide();
                         }
                         break;
                     case "explodeAnimal":
@@ -134,6 +136,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         if (human.isAnimal &&  human.isInfected)
                         {
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                            //human.Hide();
                         }
                         break;
                     case "touch":
