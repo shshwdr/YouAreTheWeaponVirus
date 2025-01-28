@@ -28,7 +28,8 @@ public BuffManager(Human human)
     // }
     public void SetBuff(string type, int value)
     {
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_touch_infection");
+
         if (!buffs.ContainsKey(type))
         {
             buffs[type] = 0;
@@ -52,7 +53,7 @@ public BuffManager(Human human)
         {
             human.touchState.SetState(buffs[type]);
         }
-        
+
         //EventPool.Trigger(EventPoolNames.UpdateBuff);
     }
     public void ClearBuff()
