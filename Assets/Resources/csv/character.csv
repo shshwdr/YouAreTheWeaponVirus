@@ -7,4 +7,4 @@ squirrel,squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel,,,,
 bird,bird,5,1,BIRD-Fly-SpriteSheet,bird,bird,,,,
 elder,ELDER,1,1,ELDER-Walk-SpriteSheet,human,human,Just old people,ELDER-Sneeze-SpriteSheet,,1
 bin,GARBAGE BIN,0,1,,bin,bin,Do not move,,,
-VIROLOGIST,VIROLOGIST,,,FixedVIROLOGIST-Walk-SpriteSheet,human,human,,,VIROLOGIST-Heal-MedicineSpray-SpriteSheet,
+VIROLOGIST,VIROLOGIST,2,3,FixedVIROLOGIST-Walk-SpriteSheet,human,human,,,VIROLOGIST-Heal-MedicineSpray-SpriteSheet,

@@ -37,6 +37,10 @@ public class Human : MonoBehaviour
     private float touchTime = 1;
     private float touchTimer = 0;
 
+    private float skillTime = 0.3f;
+    private float skillTimer = 0;
+    private bool isSkill = false;
+
     public int HP => info.hp;
     public int currentHp = 0;
     public LevelDesignInfo levelDesignInfo;
@@ -67,6 +71,7 @@ public class Human : MonoBehaviour
         hpBar = GetComponentInChildren<LevelAsIcons>(true);
         hpBar.Init(currentHp, HP);
         touchState.SetState(0);
+        immunityTimer = immunityTime;
         ai = GetComponent<HumanAI>();
     }
     // Start is called before the first frame update
@@ -84,6 +89,12 @@ public class Human : MonoBehaviour
         }
         immunityTimer+= Time.deltaTime;
         touchTimer += Time.deltaTime;
+
+        if (isSkill)
+        {
+            return;
+        }
+        
         if (isRandomMove && lastPosition == transform.position)
         {
             staticTimer += Time.deltaTime;
@@ -95,11 +106,26 @@ public class Human : MonoBehaviour
             }
         }
         lastPosition = transform.position;
+
+       
         
     }
     
     public bool canBeInfect=>immunityTimer>=immunityTime;
 
+    public void RecoverFromInfect()
+    {
+        
+        if (isDead)
+        {
+            return;
+        }
+        isInfected = false;
+        hpBar.gameObject.SetActive(true);
+        GetComponent<CharacterRenderController>().GetInfected(0);
+        
+        buffManager.SetBuff("touch",0);
+    }
     public void InfectFull()
     {
         if (isDead)
@@ -111,6 +137,45 @@ public class Human : MonoBehaviour
         hpBar.gameObject.SetActive(false);
         // renderer.color = Color.green;
         GetComponent<CharacterRenderController>().GetInfected(1);
+        
+    }
+
+    public void HealOther(Human human)
+    {
+        characterRenderer.skillAnimation.PlayOnce();
+        StopMoving();
+        human.StopMoving();
+        characterRenderer.mainRenderer.gameObject.SetActive(false);
+        characterRenderer.UpdateDir(Vector3.down);
+        isSkill = true;
+        StartCoroutine(ienumeratorHeal(human));
+    }
+    public void Heal()
+    {
+        if (currentHp >= HP)
+        {
+            return;
+        }
+        characterRenderer.healAnimation.PlayOnce();
+        if (currentHp <= 0)
+        {
+            currentHp = 0;
+            RecoverFromInfect();
+        }
+        currentHp++;
+        hpBar.Init(currentHp, HP);
+    }
+
+    IEnumerator ienumeratorHeal(Human human)
+    {
+        yield return new WaitForSeconds(0.5f);
+        human.Heal();
+        yield return new WaitForSeconds(0.6f);
+        human.RestartMoving();
+        yield return new WaitForSeconds(0.75f);
+        characterRenderer.mainRenderer.gameObject.SetActive(true);
+        RestartMoving();
+        isSkill = false;
     }
     public void Infect(CardInfo cardInfo)
     {
@@ -128,6 +193,7 @@ public class Human : MonoBehaviour
             return;
         }
 
+        characterRenderer.infectAnimation.PlayOnce();
        currentHp -= 1;
        hpBar.Init(currentHp, HP);
        immunityTimer = 0;
@@ -163,14 +229,23 @@ public class Human : MonoBehaviour
             return;
         }
        // var go = Instantiate(sneezePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
-
-        ai.StopSeekPath();
+       StopMoving();
         
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_man_sneeze");
         characterRenderer.UpdateDir(Vector3.down);
         characterRenderer.sneeze.PlayOnce();
-        isPausedMoving = true;
         StartCoroutine(SneezeEnumerator());
+    }
+
+    public void RestartMoving()
+    {
+        ai.FindNextPath();
+        isPausedMoving = false;
+    }
+    public void StopMoving()
+    {
+        ai.StopSeekPath();
+        isPausedMoving = true;
     }
 
     IEnumerator SneezeEnumerator()
@@ -232,14 +307,14 @@ public class Human : MonoBehaviour
         // {
         //     Debug.Log("Contact Point: " + contact.point);
         // }
+        var human = other.gameObject.GetComponent<Human>();
 
         if (isInfected )
         {
             
-            if (other.gameObject.GetComponent<Human>())
+            if (human)
             {
             
-                var human = other.gameObject.GetComponent<Human>();
                 if (!human.isInfected && human.canBeInfect)
                 {
                     if (buffManager.GetBuffValue("touch") > 0&& touchTimer>touchTime)
@@ -251,10 +326,26 @@ public class Human : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            // if (info.identifier == "VIROLOGIST")
+            // {
+            //     if (human && human.isHuman && !human.isFullHealthy())
+            //     {
+            //         
+            //         HealOther(human);
+            //     }
+            // }
+        }
 
         if (!isPausedMoving)
         {
             GetComponent<HumanAI>().RestartSeek();
         }
+    }
+
+    public bool isFullHealthy()
+    {
+        return currentHp >= HP && !isDead;
     }
 }

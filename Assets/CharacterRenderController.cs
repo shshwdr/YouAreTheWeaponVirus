@@ -22,10 +22,15 @@ public class CharacterRenderController : MonoBehaviour
 
     public CharacterRenderer explosion;
     public CharacterRenderer sneeze;
+
+    public CharacterRenderer infectAnimation;
+    public CharacterRenderer teleportAnimation;
+    public CharacterRenderer healAnimation;
+    public CharacterRenderer skillAnimation;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
     {
-        infectedObject.SetActive(true);
+        infectedObject.SetActive(state == 1);
     }
 
     private Vector2 lastPosition;
@@ -45,6 +50,21 @@ public class CharacterRenderController : MonoBehaviour
         {
             sneeze.spriteSheetPath ="character/"+ info.sneezeSprite;
             sneeze.Init(5);
+        }
+        
+        healAnimation.Init(3);
+        infectAnimation.Init(3);
+        teleportAnimation.Init(5);
+        
+        if (info.abilitySprite != null && info.abilitySprite != "")
+        {
+            skillAnimation.spriteSheetPath ="character/"+ info.abilitySprite;
+            int count = 8;
+            if (info.identifier == "samuri")
+            {
+                count = 9;
+            }
+            skillAnimation.Init(count);
         }
         
         switch (characterType)

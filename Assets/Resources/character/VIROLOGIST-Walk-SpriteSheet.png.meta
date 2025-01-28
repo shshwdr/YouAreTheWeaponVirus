@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,7 +134,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0132acc40fe81054085d441a1e0256b9
+      internalID: -1923305407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d396c03de7435469355c6230bea3bf
+      internalID: -943306611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1725
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16342c59207bc5842bd465b45ac93dfe
+      internalID: 2004958072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d2d7a9a49a5d348b8bd182434eaa71
+      internalID: -1862464134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c845d856da472c4081ae5b0023d9073
+      internalID: -1162345777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1150
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c754190123cd8c458f2ad6b8bf6deee
+      internalID: -1641733686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0dbe2c53c9b3e4da97bdf41d428a8a
+      internalID: -304560832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb7d3112be91ea4f9453e30e1328938
+      internalID: 733197319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 575
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1727ff71d25234ba8fa1a0e4258b6e
+      internalID: -850501172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b597e9665b2561740b4bbe1be7615e89
+      internalID: -2005941100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5315a8793c7087e459409b1f1a1f9751
+      internalID: -70506126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VIROLOGIST-Walk-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79746295fbd45f4a91d20c641ed7953
+      internalID: 1647414247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +397,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VIROLOGIST-Walk-SpriteSheet_0: -1923305407
+      VIROLOGIST-Walk-SpriteSheet_1: -943306611
+      VIROLOGIST-Walk-SpriteSheet_10: -70506126
+      VIROLOGIST-Walk-SpriteSheet_11: 1647414247
+      VIROLOGIST-Walk-SpriteSheet_2: 2004958072
+      VIROLOGIST-Walk-SpriteSheet_3: -1862464134
+      VIROLOGIST-Walk-SpriteSheet_4: -1162345777
+      VIROLOGIST-Walk-SpriteSheet_5: -1641733686
+      VIROLOGIST-Walk-SpriteSheet_6: -304560832
+      VIROLOGIST-Walk-SpriteSheet_7: 733197319
+      VIROLOGIST-Walk-SpriteSheet_8: -850501172
+      VIROLOGIST-Walk-SpriteSheet_9: -2005941100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

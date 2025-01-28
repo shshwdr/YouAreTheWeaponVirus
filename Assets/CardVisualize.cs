@@ -72,6 +72,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
     public void OnPlace()
     {
+       // Debug.LogError("place");
         Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
 
         // 检测重叠
@@ -91,6 +92,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 {
                     case "infect":
                         
+                        //Debug.LogError("infect");
                         human.Infect(cardInfo);
                         break;
                     case "infectInanimated":

@@ -15,7 +15,7 @@ public class CharacterRenderer : MonoBehaviour
 
     private float swapFrameTimer = 0;
     public SpriteRenderer spriteRenderer;
-    private int frameMax;
+    public int frameMax;
     public void SetSprite(int spriteIndex)
     {
         if (walkSprites != null)
