@@ -102,6 +102,11 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
                          //Destroy(cell);
                      }
                  }
+             else
+             {
+                 
+                 cell.OnDrag();
+             }
          }
          //  // 更新当前 Building 的位置
          // // currentBuilding.transform.position = mousePosition;

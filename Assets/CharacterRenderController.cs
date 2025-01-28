@@ -18,6 +18,7 @@ public class CharacterRenderController : MonoBehaviour
     public Transform renderersParent;
 
     public GameObject infectedObject;
+    public CharacterRenderer mainRenderer;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
     {
@@ -32,7 +33,7 @@ public class CharacterRenderController : MonoBehaviour
     {
         characterType = info.characterType;
         renderers = GetComponentsInChildren<CharacterRenderer>(true);
-        renderers[0].spriteSheetPath ="character/"+ info.sprite;
+        mainRenderer.spriteSheetPath ="character/"+ info.sprite;
         
         switch (characterType)
         {

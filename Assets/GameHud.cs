@@ -4,7 +4,7 @@ using Pool;
 using TMPro;
 using UnityEngine;
 
-public class GameHud : MonoBehaviour
+public class GameHud : Singleton<GameHud>
 {
     public TMP_Text day;
     public TMP_Text infectedCount;

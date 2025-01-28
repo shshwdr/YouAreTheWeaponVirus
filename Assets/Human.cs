@@ -4,6 +4,7 @@ using DG.Tweening;
 using Pool;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Human : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Human : MonoBehaviour
     public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
+    public GameObject ouline;
     public bool isHuman => info.characterType == "human";
     public bool isBin => info.characterType == "bin";
     public bool isAnimal=> info.characterType == "bird" || info.characterType == "squirrel";
@@ -41,6 +43,11 @@ public class Human : MonoBehaviour
     {
         0,1,1.5f,2,2.5f,3,3.5f
     };
+
+    public void DrawOutline(bool show)
+    {
+        ouline.GetComponent<SpriteRenderer>().enabled = (show);
+    }
     
     public void Init(LevelDesignInfo designInfo)
     {

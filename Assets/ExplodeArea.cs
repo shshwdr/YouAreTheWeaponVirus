@@ -13,7 +13,7 @@ public class ExplodeArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider2D[] results = new Collider2D[10]; // 假设最多检测 10 个碰撞体
+        Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
 
         ContactFilter2D contactFilter = new ContactFilter2D();
         contactFilter.useTriggers = true;  // 允许触发器参与检测

@@ -72,7 +72,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
     public void OnPlace()
     {
-        Collider2D[] results = new Collider2D[10]; // 假设最多检测 10 个碰撞体
+        Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
 
         // 检测重叠
         ContactFilter2D contactFilter = new ContactFilter2D();
@@ -121,6 +121,21 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                         }
                         break;
+                    case "explodeHuman":
+                        
+                        if (human.isHuman &&  human.isInfected)
+                        {
+                            
+                            results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                        }
+                        break;
+                    case "explodeAnimal":
+                        
+                        if (human.isAnimal &&  human.isInfected)
+                        {
+                            results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                        }
+                        break;
                     case "touch":
 
                         if (human.isInfected)
@@ -134,9 +149,99 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
             }
         }
         
-        
+        foreach (var human in HumanSpawner.Instance.humans)
+        {
+            human.DrawOutline(false);
+        }
         
         selectionCircle.SetActive(false);
+        //Destroy(gameObject);
+    }
+
+    public void OnDrag()
+    {
+        Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
+
+        // 检测重叠
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        contactFilter.useTriggers = true;  // 允许触发器参与检测
+        int count = selectionCircle.GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
+
+
+        foreach (var human in HumanSpawner.Instance.humans)
+        {
+            human.DrawOutline(false);
+        }
+        
+        for (int i = 0; i < count; i++)
+        {
+            Debug.Log($"Overlapping with: {results[i].name}");
+            if (results[i].GetComponent<Human>())
+            {
+                var human = results[i].GetComponent<Human>();
+                switch (cardInfo.actions[0])
+                {
+                    case "infect":
+                        
+                        human.DrawOutline(true);
+                        break;
+                    case "infectInanimated":
+                        if (human.isBin)
+                        {
+                            human.DrawOutline(true);
+                        }
+
+                        break;
+                    case "infectAnimal":
+                        if (human.isAnimal)
+                        {
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    case "sneeze":
+                        if (human.isHuman &&  human.isInfected)
+                        {
+                            
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    case "explodeBin":
+                        
+                        if (human.isBin &&  human.isInfected)
+                        {
+                            
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    case "explodeHuman":
+                        
+                        if (human.isHuman &&  human.isInfected)
+                        {
+                            
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    case "explodeAnimal":
+                        
+                        if (human.isAnimal &&  human.isInfected)
+                        {
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    case "touch":
+
+                        if (human.isInfected)
+                        {
+                            human.DrawOutline(true);
+                        }
+
+                        break;
+                }
+            }
+        }
+        
+        
+        
         //Destroy(gameObject);
     }
 

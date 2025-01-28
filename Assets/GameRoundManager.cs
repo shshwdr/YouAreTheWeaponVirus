@@ -66,6 +66,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     {
          yield return new WaitForSeconds(0.1f);
         isStarted = true;
+        GameHud.Instance.UpdateAll();
     }
 
     void Cheat()
