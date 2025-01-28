@@ -164,6 +164,8 @@ public class Human : MonoBehaviour
         }
         currentHp++;
         hpBar.Init(currentHp, HP);
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_doctor_spray");
     }
 
     IEnumerator ienumeratorHeal(Human human)
