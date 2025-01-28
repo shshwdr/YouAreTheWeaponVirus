@@ -14,6 +14,17 @@
 3,elder,area1,random
 3,student,area2,random
 3,elder,area2,random
+4,student,area1,random
+4,elder,area1,random
+4,student,area2,random
+4,elder,area2,random
+4,businessman,area1,patrol|1|2
+5,student,area1,random
+5,elder,area1,random
+5,student,area2,random
+5,elder,area2,random
+5,squirrel,area1,random
+5,squirrel,area2,random
 7,samuri,area1,random
 7,squirrel,area1,random
 7,bird,area2,random

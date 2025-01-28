@@ -12,7 +12,7 @@ public class HandManager : Singleton<HandManager>
     public List<CardInfo> handInBattle = new List<CardInfo>();
     public List<CardInfo> discardedInBattle = new List<CardInfo>();
     
-    private int handMax = 3;
+    private int handMax = 4;
     public void InitDeck()
     {
         deck = ownedCards.ToList();
