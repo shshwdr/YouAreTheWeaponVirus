@@ -42,7 +42,7 @@ public class HandsView : Singleton<HandsView>
         HandManager.Instance.DrawHand();
         UpdateHands();
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_click");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_draw_card");
     }
     
     public void UpdateHands()

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8868673801398461927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_draw_card
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_draw_card
+  Guid:
+    Data1: -790676635
+    Data2: 1180015237
+    Data3: 2056627860
+    Data4: 730794106
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-7807410738558669358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +55,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 94333
+--- !u!114 &-7119368617200285476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_mouse_over_card
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_mouse_over_card
+  Guid:
+    Data1: 607910874
+    Data2: 1200742312
+    Data3: -1332151416
+    Data4: -270313265
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-4992563723861011356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +124,10 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638735941499549079
+  lastModified: 638736082572252938
   FileSizes:
   - Name: Desktop
-    Value: 1110
+    Value: 1222
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -95,15 +149,17 @@ MonoBehaviour:
   - {fileID: 3403496614984529338}
   - {fileID: 3532101015980706556}
   - {fileID: -4992563723861011356}
-  - {fileID: 2139638740726967368}
   - {fileID: 7239438613361802494}
   - {fileID: 4807788009402093057}
+  - {fileID: -8868673801398461927}
+  - {fileID: 3050273333120685260}
+  - {fileID: -7119368617200285476}
   EditorParameters: []
   MasterBanks:
   - {fileID: 812841852412844100}
   StringsBanks:
   - {fileID: -3244253801142759809}
-  cacheTime: 638735941499549079
+  cacheTime: 638736082572252938
   cacheVersion: 131622
 --- !u!114 &812841852412844100
 MonoBehaviour:
@@ -120,38 +176,11 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638735941499493815
+  lastModified: 638736082572197657
   FileSizes:
   - Name: Desktop
-    Value: 1065056
+    Value: 1121088
   Exists: 1
---- !u!114 &2139638740726967368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/sfx_drag_card
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/sfx_drag_card
-  Guid:
-    Data1: -790676635
-    Data2: 1180015237
-    Data3: 2056627860
-    Data4: 730794106
-  Banks:
-  - {fileID: 812841852412844100}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1000
 --- !u!114 &2251648595145647366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +209,33 @@ MonoBehaviour:
   - Win
   - Lose
   Exists: 1
+--- !u!114 &3050273333120685260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_ui_next_dialog
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_ui_next_dialog
+  Guid:
+    Data1: -1019688998
+    Data2: 1144774795
+    Data3: -677619826
+    Data4: -963747056
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &3403496614984529338
 MonoBehaviour:
   m_ObjectHideFlags: 0

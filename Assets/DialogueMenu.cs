@@ -53,7 +53,7 @@ public class DialogueMenu : MenuBase
         text.text = "";
         base.Hide();
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_click");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_next_dialog");
     }
     public void gotoNextDialogue()
     {
@@ -81,7 +81,7 @@ public class DialogueMenu : MenuBase
                 characterInfoGo.SetActive(false);
             }
 
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_click");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_next_dialog");
         }
     }
 

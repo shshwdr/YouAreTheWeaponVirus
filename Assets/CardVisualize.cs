@@ -149,7 +149,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         }
         transform.position = hoverPos;
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_drag_card");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_mouse_over_card");
     }
 
     public void OnPointerExit(PointerEventData eventData)
