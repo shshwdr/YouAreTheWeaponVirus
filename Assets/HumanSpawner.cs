@@ -8,7 +8,8 @@ public class HumanSpawner : Singleton<HumanSpawner>
 
     //public GameObject humanPrefab;
     public Transform levelParent;
-
+    public Transform area;
+    
     public Vector3 GetPoint(string index)
     {
         var points = levelParent.Find("points");
@@ -29,7 +30,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
     {
         clear();
         this.levelParent = levelParent;
-        var area = levelParent.Find("areas");
+        area = levelParent.Find("areas");
         var points = levelParent.Find("points");
 
         foreach (var levelDesignInfo in CSVLoader.Instance.levelDesignDict[GameRoundManager.Instance.currentLevelId])
@@ -56,7 +57,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
         //humans = GetComponentsInChildren<Human>();
     }
 
-    public Vector2 GetRandomPointInBoxCollider(BoxCollider2D boxCollider)
+    static public Vector2 GetRandomPointInBoxCollider(BoxCollider2D boxCollider)
     {
         if (boxCollider == null)
         {

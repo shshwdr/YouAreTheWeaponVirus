@@ -87,7 +87,9 @@ public class DialogueMenu : MenuBase
                     characterPortrait.gameObject.SetActive(false);
                 }
                 speed.Init(characterInfo.speed, characterInfo.speed);
+                speed.gameObject.SetActive(true);
                 hp.Init(characterInfo.hp, characterInfo.hp);
+                hp.gameObject.SetActive(true);
             }
             else
             {

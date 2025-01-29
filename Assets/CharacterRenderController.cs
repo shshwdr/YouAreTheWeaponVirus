@@ -242,7 +242,7 @@ public class CharacterRenderController : MonoBehaviour
                 renderersParent.localScale = new Vector3(1, 1, 1);
             }
     }
-Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " currentFrame " + transform.position);
+//Debug.Log("currentDirection: " + currentDirection + " lastDir " + lastDir +  " currentFrame " + transform.position);
         // 更新上次位置
         lastPosition = transform.position;
     }

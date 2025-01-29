@@ -221,7 +221,10 @@ public class HumanAI : MonoBehaviour
 
     public void RestartSeek()
     {
-        
+        if (GetComponent<Human>().levelDesignInfo.move[0] == "random")
+        {
+            
+        }
         seeker.CancelCurrentPathRequest();
         FindNextPath();
     }
@@ -242,10 +245,22 @@ public class HumanAI : MonoBehaviour
 
     private Vector3 GetRandomPosition(Vector3 center, float range)
     {
-        float x = Random.Range(center.x - range, center.x + range);
-        float z = Random.Range(center.z - range, center.z + range);
+        if (human.levelDesignInfo.move.Count > 1)
+        {
+            
+            var area = HumanSpawner.Instance.area;
+            return HumanSpawner.GetRandomPointInBoxCollider(area.Find(human.levelDesignInfo.spawn)
+                .GetComponent<BoxCollider2D>());
+        }
+        else
+        {
+            
+            float x = Random.Range(center.x - range, center.x + range);
+            float z = Random.Range(center.z - range, center.z + range);
     
-        return new Vector3(x, z, 0);
+            return new Vector3(x, z, 0);
+        }
+        
     }
     //
     // private Vector3 GetRandomPositionAwayFromTarget(Vector3 targetPosition, float minRange, float maxRange)

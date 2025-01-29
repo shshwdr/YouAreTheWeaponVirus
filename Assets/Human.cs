@@ -437,10 +437,12 @@ public class Human : MonoBehaviour
             // }
         }
 
-        if (!isPausedMoving)
-        {
-            GetComponent<HumanAI>().RestartSeek();
-        }
+        // if (!isPausedMoving)
+        // {
+        //     
+        //     GetComponent<HumanAI>().RestartSeek();
+        // }
+        
     }
 
     public bool isFullHealthy()
