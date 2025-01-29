@@ -45,7 +45,7 @@ public class CharacterRenderController : MonoBehaviour
         mainRenderer.spriteSheetPath ="character/"+ info.sprite;
         
         
-        explosion.Init(6);
+        explosion.Init(9);
 
         if (info.sneezeSprite != null && info.sneezeSprite != "")
         {

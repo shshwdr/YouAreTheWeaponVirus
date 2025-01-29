@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  spriteSheetPath: character/OVERLAY-Infection-Stage3-Walk-SpriteSheet
+  spriteSheetPath: character/OVERLAY-Glow3-Infection-Stage3-Walk-SpriteSheet - Copy
   spriteRenderer: {fileID: 0}
   frameMax: 0
 --- !u!1 &1744497443668601868
@@ -1107,7 +1107,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.07058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f5fd9fe4690248a61f662ea6660b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 0c1175390cbf7d04aac7b598e8f8de8a, type: 3}
+  texture: {fileID: 2800000, guid: f765b014710ce194e92c6cdeeab519cb, type: 3}
   spriteSheetPath: character/BASE-Walk-SpriteSheet
   spriteRenderer: {fileID: 0}
   frameMax: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplodeArea : MonoBehaviour
 {
     public float radius = 1f;
+    public CharacterRenderer renderer;
     public void Init(float radius)
     {
         this.radius = radius;
@@ -19,7 +20,9 @@ public class ExplodeArea : MonoBehaviour
         contactFilter.useTriggers = true;  // 允许触发器参与检测
         int count = GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
-
+        renderer.Init(3);
+        renderer.PlayOnce();
+        Destroy(gameObject,1);
         for (int i = 0; i < count; i++)
         {
             Debug.Log($"Overlapping with: {results[i].name}");

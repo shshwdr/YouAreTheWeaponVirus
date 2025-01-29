@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -8,6 +10,7 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
 {
     private GameObject currentDragging; // 当前正在拖动的 Building
     public Transform uiDropArea; // 取消UI 放置区域
+    public GameObject uiDropAreaText;
     [HideInInspector]
     [FormerlySerializedAs("cell")] public CardVisualize currentDraggingCell;
     // Start is called before the first frame update
@@ -102,6 +105,7 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
                         
                          currentDraggingCell.Cancel();
                          StopDragging();
+                         currentDraggingCell = null;
                          currentDragging = null; // 取消选择
                      }
                      else
@@ -109,6 +113,7 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
                          //Destroy(currentBuilding);
                          currentDraggingCell.OnPlace();
                          StopDragging();
+                         currentDraggingCell = null;
                          currentDragging = null; // 取消选择
                          //Destroy(cell);
                      }
@@ -117,12 +122,13 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
              {
                  if (IsInDropArea(mousePosition))
                  {
-                     uiDropArea.GetComponent<CanvasGroup>().alpha = 1;
+                     uiDropAreaText.SetActive(true);
                  }
                  else
                  {
                      
-                     uiDropArea.GetComponent<CanvasGroup>().alpha = 0.5f;
+                     uiDropAreaText.SetActive(false);
+                     //uiDropArea.GetComponent<CanvasGroup>().alpha = 0.5f;
                  }
                  currentDraggingCell.OnDrag();
              }
