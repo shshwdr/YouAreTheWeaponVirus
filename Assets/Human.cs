@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -16,6 +17,7 @@ public class Human : MonoBehaviour
 
     public GameObject sneezePrefab;
     public GameObject explodePrefab;
+    public GameObject deathEffect;
     private LevelAsIcons hpBar;
     private float immunityTime = 2f;
     private float immunityTimer = 0;
@@ -140,6 +142,52 @@ public class Human : MonoBehaviour
         
     }
 
+    public void Attack(Human human)
+    {
+        if (isDead)
+        {
+            return;
+        }
+        
+        characterRenderer.skillSamuriAnimation.PlayOnce();
+        StopMoving();
+        human.StopMoving();
+        characterRenderer.mainRenderer.gameObject.SetActive(false);
+        characterRenderer.UpdateDir(Vector3.down);
+
+        if (human.transform.position.x > transform.position.x)
+        {
+            var scale = characterRenderer.renderersParent.transform.localScale;
+            scale.x = -1;
+            characterRenderer.renderersParent.transform.localScale = scale;
+        }
+        
+        isSkill = true;
+        StartCoroutine(ienumeratorAttack(human));
+    }
+
+    private Vector3 samuraiSkillPosition;
+    IEnumerator ienumeratorAttack(Human human)
+    {
+        yield return new WaitForSeconds(0.5f);
+        human.Die();
+        samuraiSkillPosition = characterRenderer.skillSamuriAnimation.transform.position;
+        characterRenderer.skillSamuriAnimation.transform.DOMove(human.transform.position,0.6f);
+        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
+        characterRenderer.skillSamuriAnimation.transform.DOMove(samuraiSkillPosition,0.3f);
+        //human.RestartMoving();
+        yield return new WaitForSeconds(0.6f);
+        //if (human.transform.position.x > transform.position.x)
+        {
+            var scale = characterRenderer.renderersParent.transform.localScale;
+            scale.x = 1;
+            characterRenderer.renderersParent.transform.localScale = scale;
+        }
+        characterRenderer.mainRenderer.gameObject.SetActive(true);
+        RestartMoving();
+        isSkill = false;
+    }
     public void HealOther(Human human)
     {
         characterRenderer.skillAnimation.PlayOnce();
@@ -221,7 +269,7 @@ public class Human : MonoBehaviour
         imunityRenderer.color = color;
     }
 
-    private bool isPausedMoving = true;
+    private bool isPausedMoving = false;
     public void Sneeze(CardInfo cardInfo)
     {
         if (isDead)
@@ -284,13 +332,30 @@ public class Human : MonoBehaviour
     {
         isDead = true;
         ai.StopSeekPath();
+        GetComponent<Collider2D>().enabled = false;
+        deathEffect.transform.parent = GameRoundManager.Instance.tempTrans;
         StartCoroutine(Hide());
     }
 
     IEnumerator Hide()
     {
         yield return new WaitForSeconds(0.5f);
-        characterRenderer.renderersParent.gameObject.SetActive(false);
+        //characterRenderer.renderersParent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public bool canBeActioned()
+    {
+        return !isDead && !isPausedMoving;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        
+        if (!isPausedMoving)
+        {
+            GetComponent<HumanAI>().RestartSeek();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

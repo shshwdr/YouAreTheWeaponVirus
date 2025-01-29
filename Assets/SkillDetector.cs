@@ -11,6 +11,11 @@ public class SkillDetector : MonoBehaviour
         {
             return;
         }
+
+        if (!thisHuman.canBeActioned())
+        {
+            return;
+        }
         // 获取碰撞到的物体的名称
         Debug.Log("Collided with: " + other.gameObject.name);
 
@@ -27,12 +32,25 @@ public class SkillDetector : MonoBehaviour
         }
         else
         {
-            if (thisHuman.info.identifier == "VIROLOGIST")
+            if (human && human.canBeActioned())
             {
-                if (human && human.isHuman && !human.isFullHealthy())
+                
+                if (thisHuman.info.identifier == "VIROLOGIST")
                 {
+                    if (human && human.isHuman && !human.isFullHealthy())
+                    {
                     
-                    thisHuman.HealOther(human);
+                        thisHuman.HealOther(human);
+                    }
+                }
+                else if (thisHuman.info.identifier == "samuri")
+                {
+                
+                    if (human && human.isHuman && human.isInfected && !human.isDead)
+                    {
+                    
+                        thisHuman.Attack(human);
+                    }
                 }
             }
         }

@@ -27,6 +27,7 @@ public class CharacterRenderController : MonoBehaviour
     public CharacterRenderer teleportAnimation;
     public CharacterRenderer healAnimation;
     public CharacterRenderer skillAnimation;
+    public CharacterRenderer skillSamuriAnimation;
     // 在 Start 方法中初始化 spriteRenderer 和加载图片
     public void GetInfected(int state)
     {
@@ -55,7 +56,7 @@ public class CharacterRenderController : MonoBehaviour
         healAnimation.Init(3);
         infectAnimation.Init(3);
         teleportAnimation.Init(5);
-        
+        skillSamuriAnimation.Init(9);
         if (info.abilitySprite != null && info.abilitySprite != "")
         {
             skillAnimation.spriteSheetPath ="character/"+ info.abilitySprite;
