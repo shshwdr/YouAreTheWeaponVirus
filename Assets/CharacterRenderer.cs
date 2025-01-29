@@ -34,16 +34,45 @@ public class CharacterRenderer : MonoBehaviour
         currentFrame = 0;
         isPlaying = true;
     }
+
+    private bool reversePlay = false;
+
+    public void PlayReverseOnce()
+    {
+        
+        gameObject.SetActive(true);
+        currentFrame = frameMax-1;
+        reversePlay = true;
+        isPlaying = true;
+    }
+    
     void updateFrame()
     {
         swapFrameTimer += Time.deltaTime;
         if (swapFrameTimer >= swapFrameTime)
         {
             swapFrameTimer -= swapFrameTime;
-            currentFrame = (currentFrame + 1);
+            if (reversePlay)
+            {
+                currentFrame = (currentFrame - 1);
+            }
+            else
+            {
+                
+                currentFrame = (currentFrame + 1);
+            }
         }
 
-        if (currentFrame >= frameMax)
+        bool finishedPlay = false;
+        if (reversePlay)
+        {
+            finishedPlay = currentFrame < 0;
+        }
+        else
+        {
+            finishedPlay = currentFrame >= frameMax;
+        }
+        if (finishedPlay)
         {
             isPlaying = false;
             gameObject.SetActive(false);

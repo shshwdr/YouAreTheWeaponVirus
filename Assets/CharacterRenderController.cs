@@ -21,6 +21,7 @@ public class CharacterRenderController : MonoBehaviour
     public CharacterRenderer mainRenderer;
 
     public CharacterRenderer explosion;
+    public CharacterRenderer ghost;
     public CharacterRenderer sneeze;
 
     public CharacterRenderer infectAnimation;
@@ -46,6 +47,7 @@ public class CharacterRenderController : MonoBehaviour
         
         
         explosion.Init(9);
+        ghost.Init(5);
 
         if (info.sneezeSprite != null && info.sneezeSprite != "")
         {

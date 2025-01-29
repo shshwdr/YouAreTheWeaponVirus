@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -152,7 +153,18 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         }
 
                         break;
+                        
                 }
+            }
+        }
+
+        if (cardInfo.actions[0] == "teleport")
+        {
+            var infectedHuman = HumanSpawner.Instance.humans.Where(h => h.isInfected && !h.isDead).ToList();
+            if (infectedHuman.Count > 0)
+            {
+                var infected = infectedHuman.PickItem();
+                infected.Teleport(selectionCircle.transform.position);
             }
         }
         

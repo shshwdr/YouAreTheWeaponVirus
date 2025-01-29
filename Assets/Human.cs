@@ -17,6 +17,7 @@ public class Human : MonoBehaviour
 
     public GameObject sneezePrefab;
     public GameObject explodePrefab;
+    public GameObject teleportPrefab;
     public GameObject deathEffect;
     private LevelAsIcons hpBar;
     private float immunityTime = 2f;
@@ -271,7 +272,7 @@ public class Human : MonoBehaviour
         imunityRenderer.color = color;
     }
 
-    private bool isPausedMoving = false;
+    public bool isPausedMoving = false;
     public void Sneeze(CardInfo cardInfo)
     {
         if (isDead)
@@ -289,13 +290,13 @@ public class Human : MonoBehaviour
 
     public void RestartMoving()
     {
-        ai.FindNextPath();
         isPausedMoving = false;
+        ai.FindNextPath();
     }
     public void StopMoving()
     {
-        ai.StopSeekPath();
         isPausedMoving = true;
+        ai.StopSeekPath();
     }
 
     IEnumerator SneezeEnumerator()
@@ -316,7 +317,7 @@ public class Human : MonoBehaviour
         }
         StartCoroutine(ExplodeEnumerator());
         characterRenderer.explosion.PlayOnce();
-        Die();
+        Die(false);
     }
     
     
@@ -327,16 +328,47 @@ public class Human : MonoBehaviour
         var go = Instantiate(explodePrefab, transform.position, Quaternion.identity,GameRoundManager.Instance.tempTrans);
         go.GetComponent<ExplodeArea>().Init(1);
         
+        
+        yield return new WaitForSeconds(1f);
+        characterRenderer.ghost.PlayOnce();
     }
 
     public bool isDead = false;
-    public void Die()
+    public void Die(bool showGhost = true)
     {
+        
         isDead = true;
         ai.StopSeekPath();
         GetComponent<Collider2D>().enabled = false;
         deathEffect.transform.parent = GameRoundManager.Instance.tempTrans;
+        if (showGhost)
+        {
+            characterRenderer.ghost.PlayOnce();
+        }
         StartCoroutine(Hide());
+    }
+
+    public void Teleport(Vector3 target)
+    {
+        characterRenderer.teleportAnimation.PlayOnce();
+        var go = Instantiate(teleportPrefab, target, Quaternion.identity, GameRoundManager.Instance.tempTrans);
+       StopMoving();
+       StartCoroutine(teleportEnumerator(target, go));
+    }
+
+    IEnumerator teleportEnumerator(Vector3 target,GameObject teleport)
+    {
+        yield return new WaitForSeconds(1.25f);
+        var originPosition = transform.position;
+        teleport.transform.position = originPosition;
+        transform.position = target;
+        
+        characterRenderer.teleportAnimation.PlayReverseOnce();
+        teleport.GetComponent<TeleportArea>().rendere.PlayReverseOnce();
+        
+        yield return new WaitForSeconds(1.25f);
+        Destroy(teleport);
+        RestartMoving();
     }
 
     IEnumerator Hide()

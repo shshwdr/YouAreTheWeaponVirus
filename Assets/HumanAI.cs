@@ -134,6 +134,11 @@ public class HumanAI : MonoBehaviour
     private int patrolIndex = 0;
     public void FindNextPath()
     {
+        if (GetComponent<Human>().isPausedMoving)
+        {
+            return;
+            
+        }
         switch (GetComponent<Human>().levelDesignInfo.move[0])
         {
             case "random":

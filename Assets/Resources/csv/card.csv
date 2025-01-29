@@ -1,5 +1,5 @@
 ﻿identifier,actions,start,title,desc,canDraw,exhaust
-infect,infect|1,1,Infect,"Infect all in a circle, can use once per day",,1
+infect,infect|1,2,Infect,"Infect all in a circle, can use once per day",,1
 sneeze,sneeze|1,0,Sneeze,infected human in a circle create area that would infect others,1,
 touch,touch|3,0,Touch,infected ones in a circle would infect next 3 uninfected he touches,1,
 pushAway(WIP,,,Push Away,WIP,,
@@ -9,5 +9,5 @@ explodeBin,explodeBin|1,0,Explode Bin,infect a big area around a garbage bin,1,
 explodeHuman,explodeHuman|1,1,Explode Human,infect a small area around an infected human,1,
 explodeAnimal,explodeAnimal|1,0,Explode Animal,infect a small area around an infected human,1,
 summonMushroom,,,Summon Mushroom,"if there are human, animal and bin in an area, summon mushroom",,
-teleport,,,Teleport,teleport a random infected human to an area,,
+teleport,teleport|1,1,Teleport,teleport a random infected human to an area,,
 attract,,,Attract,animals in an area would attract not infected human,,
