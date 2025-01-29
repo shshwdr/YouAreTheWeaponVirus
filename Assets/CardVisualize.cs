@@ -140,6 +140,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                             //human.Hide();
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_animal_explosion");
                         }
                         break;
                     case "touch":
@@ -165,6 +167,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
             {
                 var infected = infectedHuman.PickItem();
                 infected.Teleport(selectionCircle.transform.position);
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_teleport");
             }
         }
         
