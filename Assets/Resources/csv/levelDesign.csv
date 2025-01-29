@@ -31,12 +31,15 @@
 55,squirrel,area2,random
 55,doctor,area4,random|area4
 55,elder,area1,random
+55,bin,2,idle
 55,elder,area2,random
 6,student,area1,random
 6,elder,area1,random
 6,student,area2,random
 6,elder,area2,random
 6,bird,area1,random
+6,doctor,area3,random|area3
+6,doctor,area4,random|area4
 6,bird,area2,random
 7,elder,area2,random
 7,elder,area1,random

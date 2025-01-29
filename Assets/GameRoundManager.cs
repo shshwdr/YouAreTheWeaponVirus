@@ -155,6 +155,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public void RestartLevel()
     {
         isFinished = false;
+        isStarted = false;
         ShowDialogue();
     }
     
