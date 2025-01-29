@@ -1,6 +1,6 @@
 ﻿identifier,title,speed,hp,sprite,characterType,prefab,desc,sneezeSprite,abilitySprite,portrait
 businessman,Businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human,human,Busiest humans around here,BUSINESSMAN-Sneeze-SpriteSheet,,BUSINESSMAN-InformationSprite
-doctor,doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human,Shy people always covering their faces. Protecting themselves from infection.,DOCTOR-Sneeze-SpriteSheet,,DOCTOR-InformationSprite
+doctor,doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human,Shy people always covering their faces and stay in a small area,DOCTOR-Sneeze-SpriteSheet,,DOCTOR-InformationSprite
 student,STUDENT,2,2,STUDENT-Walk-SpriteSheet,human,human,Annoying children,STUDENT-Sneeze-SpriteSheet,,STUDENT-InformationSprite
 samuri,samurai,2,3,SAMURAI-Walk-SpriteSheet,human,human,He will kill any infected humans around him,SAMURAI-Sneeze-SpriteSheet,SAMURAI-Attack-SpriteSheet,SAMURAI-InformationSprite
 squirrel,squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel,Weird creature moving very fast,,,

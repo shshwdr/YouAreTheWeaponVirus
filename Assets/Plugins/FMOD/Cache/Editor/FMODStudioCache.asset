@@ -232,7 +232,7 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638737446721383322
+  lastModified: 638737876310272488
   FileSizes:
   - Name: Desktop
     Value: 1324
@@ -263,13 +263,13 @@ MonoBehaviour:
   - {fileID: 5108209249753815519}
   - {fileID: 3680986622124902168}
   - {fileID: 4611365556456560242}
-  - {fileID: 765657483922705494}
+  - {fileID: 3848312042995294909}
   EditorParameters: []
   MasterBanks:
   - {fileID: 812841852412844100}
   StringsBanks:
   - {fileID: -3244253801142759809}
-  cacheTime: 638737446721383322
+  cacheTime: 638737876310272488
   cacheVersion: 131622
 --- !u!114 &395715853908054293
 MonoBehaviour:
@@ -340,7 +340,7 @@ MonoBehaviour:
   Path: Assets/Music/FMODBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638737446720282591
+  lastModified: 638737876310257337
   FileSizes:
   - Name: Desktop
     Value: 1211072
@@ -481,6 +481,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &3848312042995294909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_teleport
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_teleport
+  Guid:
+    Data1: -335201305
+    Data2: 1340617465
+    Data3: 1188374144
+    Data4: -1687779596
+  Banks:
+  - {fileID: 812841852412844100}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &4611365556456560242
 MonoBehaviour:
   m_ObjectHideFlags: 0
