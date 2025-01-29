@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour
         {
             trans.gameObject.SetActive(false);
         }
-        var level = levelParent.Find("level"+GameRoundManager.Instance.currentLevel);
+        var level = levelParent.Find("level"+GameRoundManager.Instance.currentLevelId);
         level .gameObject.SetActive(true);
         level.transform.position = Vector3.zero;
         

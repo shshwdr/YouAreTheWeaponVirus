@@ -34,8 +34,9 @@ public class DialogueMenu : MenuBase
     {
         base.Show();
         HandsView.Instance.gameObject.SetActive(false);
-        
-        var dialogue = CSVLoader.Instance.dialogueDict.GetValueOrDefault(GameRoundManager.Instance.currentLevel, new List<DialogueInfo>());
+        GameHud.Instance.gameObject.SetActive(false);
+        FindObjectOfType<WinLoseMenu>().Hide();
+        var dialogue = CSVLoader.Instance.dialogueDict.GetValueOrDefault(GameRoundManager.Instance.currentLevelId, new List<DialogueInfo>());
         if (dialogue.Count == 0)
         {
             hideDialogue();
@@ -49,6 +50,7 @@ public class DialogueMenu : MenuBase
 
     public void hideDialogue()
     {
+        GameHud.Instance.gameObject.SetActive(true);
         GameRoundManager.Instance.StartLevel();
         text.text = "";
         base.Hide();
@@ -58,13 +60,13 @@ public class DialogueMenu : MenuBase
     public void gotoNextDialogue()
     {
         index++;
-        if (index >= CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevel].Count)
+        if (index >= CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevelId].Count)
         {
             hideDialogue();
         }
         else
         {
-            var info = CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevel][index];
+            var info = CSVLoader.Instance.dialogueDict[GameRoundManager.Instance.currentLevelId][index];
             text.text = info.text;
             if (info.characterInfo != null && info.characterInfo != "")
             {
@@ -101,6 +103,10 @@ public class DialogueMenu : MenuBase
                     row = 1;
                     col = 3;
                     break;
+                case "bin":
+                    row = 1;
+                    col = 1;
+                    break;
             }
             var texture = Resources.Load<Texture2D>("character/"+ info.sprite);
 
@@ -109,6 +115,10 @@ public class DialogueMenu : MenuBase
             int spriteIndex = 0;
             var i = 0;
             var j = 1;
+            if (info.characterType == "bin")
+            {
+                j = 0;
+            }
            // for (int i = 0; i < row; i++)  // 4 行
             {
               //  for (int j = 0; j < col; j++)  // 3 列

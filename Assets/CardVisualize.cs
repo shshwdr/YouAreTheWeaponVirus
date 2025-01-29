@@ -309,7 +309,10 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
     public void ExitCard()
     {
-        
-        transform.position = startPos;
+        if (this && transform)
+        {
+            
+            transform.position = startPos;
+        }
     }
 }

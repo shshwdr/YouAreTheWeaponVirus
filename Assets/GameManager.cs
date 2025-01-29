@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     public void RestartGame()
     {
         HandManager.Instance.Init();
-        GameRoundManager.Instance.Restart();
+        GameRoundManager.Instance.RestartGame();
     }
     // Update is called once per frame
     void Update()

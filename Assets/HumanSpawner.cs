@@ -26,7 +26,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
         var area = levelParent.Find("areas");
         var points = levelParent.Find("points");
 
-        foreach (var levelDesignInfo in CSVLoader.Instance.levelDesignDict[GameRoundManager.Instance.currentLevel])
+        foreach (var levelDesignInfo in CSVLoader.Instance.levelDesignDict[GameRoundManager.Instance.currentLevelId])
         {
             var  info = CSVLoader.Instance.characterDict[levelDesignInfo.type];
             Vector2 position;

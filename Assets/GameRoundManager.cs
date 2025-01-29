@@ -11,6 +11,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public float levelTime = 3;
     public bool isFinished = false;
     public int currentLevel = 1;
+    public string currentLevelId => CSVLoader.Instance.levelDict[currentLevel].id;
     public int startLevel = 1;
     private LevelController levelController;
 
@@ -23,12 +24,12 @@ public class GameRoundManager : Singleton<GameRoundManager>
     public void GoToNextLevel()
     {
         currentLevel++;
-        
+        isStarted = false;
         isFinished = false;
         ShowDialogue();
     }
 
-    public void Restart()
+    public void RestartGame()
     {
         currentLevel = startLevel;
         //HandManager.Instance.Init();
@@ -77,7 +78,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RestartLevel();
+            RestartGame();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -142,10 +143,11 @@ public class GameRoundManager : Singleton<GameRoundManager>
         
         
     }
+
     public void RestartLevel()
     {
-        GameRoundManager.Instance.Restart();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isFinished = false;
+        ShowDialogue();
     }
     
     

@@ -19,7 +19,9 @@ public class CardSelectionMenu : MenuBase
     {
         base.Show();
         
+        GameHud.Instance.gameObject.SetActive(false);
         HandsView.Instance.gameObject.SetActive(false);
+        
         var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw).ToList();
 
         for (int i = 0; i < 3; i++)

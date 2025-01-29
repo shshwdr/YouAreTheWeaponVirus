@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 243749914323263102, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 430573042216688740, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Name
       value: squirrel

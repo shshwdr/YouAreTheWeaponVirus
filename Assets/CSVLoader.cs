@@ -17,6 +17,7 @@ public class CardInfo
 public class LevelInfo
 {
     public int identifier;
+    public string id;
     public int time;
 
 }
@@ -39,14 +40,14 @@ public class CharacterInfo
 
 public class DialogueInfo
 {
-    public int level;
+    public string level;
     public string text;
     public string characterInfo;
 
 }
 public class LevelDesignInfo
 {
-    public int identifier;
+    public string identifier;
     public string type;
     public string spawn;
     public List<string> move;
@@ -57,9 +58,9 @@ public class CSVLoader : Singleton<CSVLoader>
     public Dictionary<string, CardInfo> cardDict = new Dictionary<string, CardInfo>();
     public Dictionary<string, CharacterInfo> characterDict = new Dictionary<string, CharacterInfo>();
     public Dictionary<int, LevelInfo> levelDict = new Dictionary<int, LevelInfo>();
-    public Dictionary<int, List<DialogueInfo>> dialogueDict = new Dictionary<int, List<DialogueInfo>>();
+    public Dictionary<string, List<DialogueInfo>> dialogueDict = new Dictionary<string, List<DialogueInfo>>();
     
-public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<int, List<LevelDesignInfo>>();
+public Dictionary<string, List<LevelDesignInfo>> levelDesignDict = new Dictionary<string, List<LevelDesignInfo>>();
     public void Init()
     {
         var heroInfos =
@@ -70,10 +71,13 @@ public Dictionary<int, List<LevelDesignInfo>> levelDesignDict = new Dictionary<i
         }
         var levelInfos =
             CsvUtil.LoadObjects<LevelInfo>(GetFileNameWithABTest("level"));
+        int i = 1;
         foreach (var info in levelInfos)
         {
+            info.identifier = i;
             levelDict[info.identifier]=info;
             GameRoundManager.Instance.maxLevel = Mathf.Max(info.identifier,GameRoundManager.Instance.maxLevel);
+            i++;
         }
         var levelDesignInfos =
             CsvUtil.LoadObjects<LevelDesignInfo>(GetFileNameWithABTest("levelDesign"));

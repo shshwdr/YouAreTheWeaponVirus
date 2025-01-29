@@ -15,38 +15,42 @@ public class WinLoseMenu : MenuBase
 
     public TMP_Text dialogue;
 
-    public Button nextLevel;
 
     public void ShowWin()
     {
         GameRoundManager.Instance. isFinished = true;
         title.text = "You Win!";
-        dialogue.text = "How Nice. You are my best weapon.";
+        dialogue.text = "Awesome. You are the smartest weapon around.";
 
-        if (!GameRoundManager.Instance.isMaxLevel)
-        {
-            nextLevel.gameObject.SetActive(true);
-        }
-        else
-        {
-            nextLevel.gameObject.SetActive(false);
-        }
+        // if (!GameRoundManager.Instance.isMaxLevel)
+        // {
+        //     nextLevel.gameObject.SetActive(true);
+        // }
+        // else
+        // {
+        //     nextLevel.gameObject.SetActive(false);
+        // }
         
         Show();
     }
     public void ShowLose()
     {
         GameRoundManager.Instance. isFinished = true;
-        nextLevel.gameObject.SetActive(false);
         title.text = "You Lose!";
-        dialogue.text = "You Lose? What a pity... Try again?";
+        dialogue.text = "You lost? What a pity... What? You expect me to do something? Go and try it again!";
         Show();
     }
     // Start is called before the first frame update
     void Start()
     {
         restartLevel.onClick.AddListener(() => GameRoundManager.Instance.RestartLevel());
-        nextLevel. onClick.AddListener(() => GameRoundManager.Instance.GoToNextLevel());
+        restartGame. onClick.AddListener(() => GameManager.Instance.RestartGame());
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        HandsView.Instance.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

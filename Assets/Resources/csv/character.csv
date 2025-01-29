@@ -1,10 +1,19 @@
-﻿identifier,title,speed,hp,sprite,characterType,prefab,desc,sneezeSprite,abilitySprite,canSneeze
-businessman,businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human,human,,BUSINESSMAN-Sneeze-SpriteSheet,,1
-doctor,doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human,,DOCTOR-Sneeze-SpriteSheet,,1
-student,STUDENT,2,2,STUDENT-Walk-SpriteSheet,human,human,,STUDENT-Sneeze-SpriteSheet,,1
-samuri,samuri,2,3,SAMURAI-Walk-SpriteSheet,human,human,,,SAMURAI-Attack-SpriteSheet,
-squirrel,squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel,,,,
-bird,bird,5,1,BIRD-Fly-SpriteSheet,bird,bird,,,,
-elder,ELDER,1,1,ELDER-Walk-SpriteSheet,human,human,Just old people,ELDER-Sneeze-SpriteSheet,,1
-bin,GARBAGE BIN,0,1,,bin,bin,Do not move,,,
-VIROLOGIST,VIROLOGIST,2,3,FixedVIROLOGIST-Walk-SpriteSheet,human,human,,,VIROLOGIST-Heal-MedicineSpray-SpriteSheet,
+﻿identifier,title,speed,hp,sprite,characterType,prefab,desc,sneezeSprite,abilitySprite
+businessman,Businessman,3,1,BUSINESSMAN-Walk-SpriteSheet,human,human,Busiest humans around here,BUSINESSMAN-Sneeze-SpriteSheet,
+doctor,doctor,2,3,DOCTOR-Walk-SpriteSheet,human,human,Shy people always covering their faces. Protecting themselves from infection.,DOCTOR-Sneeze-SpriteSheet,
+student,STUDENT,2,2,STUDENT-Walk-SpriteSheet,human,human,Annoying children,STUDENT-Sneeze-SpriteSheet,
+samuri,samurai,2,3,SAMURAI-Walk-SpriteSheet,human,human,He will kill any infected humans around him,SAMURAI-Sneeze-SpriteSheet,SAMURAI-Attack-SpriteSheet
+squirrel,squirrel,5,1,SQUIRREL-Run-SpriteSheet,squirrel,squirrel,Weird creature moving very fast,,
+bird,bird,5,1,BIRD-Fly-SpriteSheet,bird,bird,Can fly past walls,,
+elder,ELDER,1,1,ELDER-Walk-SpriteSheet,human,human,Incredibly old human,ELDER-Sneeze-SpriteSheet,
+bin,Garbage bin,0,1,STAGE-GarbageBin,bin,bin,"It does not move, I’m pretty sure",,
+viro,VIROLOGIST,2,3,FixedVIROLOGIST-Walk-SpriteSheet,human,human,She is able to heal others,VIROLOGIST-Sneeze-SpriteSheet,VIROLOGIST-Heal-MedicineSpray-SpriteSheet
+mushroom,,3,3,MUSHROOM-Walk-SpriteSheet,mushroom,human,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
