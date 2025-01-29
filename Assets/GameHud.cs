@@ -19,6 +19,12 @@ public class GameHud : Singleton<GameHud>
         EventPool.OptIn("Infect", UpdateInfect);
         UpdateInfect();
         UpdateLevel();
+        progressBar.gameObject.SetActive(false);
+    }
+    
+    public void StartProgressBar()
+    {
+        progressBar.gameObject.SetActive(true);
     }
 
     public void UpdateAll()

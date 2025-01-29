@@ -31,6 +31,33 @@ public class HandManager : Singleton<HandManager>
         }
         EventPool.Trigger("DrawHand");
     }
+    
+    
+
+    public void DrawSpecificCard(string key,bool fromdeck = true)
+    {
+        var infect = CSVLoader.Instance.cardDict[key];
+        if (fromdeck)
+        {
+            if(!deck.Contains(infect))
+            {
+                deck .AddRange( discardedInBattle);
+            }
+            
+            if (deck.Contains(infect))
+            {
+                deck.Remove(infect);
+                handInBattle.Add(infect);
+            }
+        }
+        else
+        {
+            handInBattle.Add(infect);
+        }
+        
+        EventPool.Trigger("DrawHand");
+    }
+    
     public void DrawHand()
     {
         discardedInBattle.AddRange(handInBattle);

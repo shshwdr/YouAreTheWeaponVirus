@@ -3,10 +3,10 @@
 1,elder,area1,random
 1,elder,area1,random
 1,elder,area2,random
-2,student,area1,random
-2,elder,area1,random
-2,student,area2,random
-2,elder,area2,random
+2,student,area1,random|area1
+2,elder,area1,random|area1
+2,student,area2,random|area2
+2,elder,area2,random|area2
 3,bin,1,idle
 3,bin,2,idle
 3,bin,3,idle

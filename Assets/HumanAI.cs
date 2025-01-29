@@ -175,6 +175,11 @@ public class HumanAI : MonoBehaviour
             return;
         }
 
+        if (!FindObjectOfType<TutorialMenu>().isFinished)
+        {
+            return;
+        }
+
         int test = 100;
         while (test-->0)
         {
@@ -197,7 +202,10 @@ public class HumanAI : MonoBehaviour
 
     bool MoveToPosition(Vector3 position)
     {
-        
+        if (!this || !transform ||!astar)
+        {
+            return true;
+        }
         GraphNode startNode = astar.GetNearest(transform.position).node;
         GraphNode endNode = astar.GetNearest(position).node;
         bool isPathPossible = PathUtilities.IsPathPossible(startNode, endNode);

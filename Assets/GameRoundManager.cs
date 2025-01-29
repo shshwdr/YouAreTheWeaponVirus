@@ -60,8 +60,14 @@ public class GameRoundManager : Singleton<GameRoundManager>
 
         FindObjectOfType<GameHud>().UpdateAll();
         HandManager.Instance.InitDeck();
-        HandManager.Instance.DrawHand();
+
+        if (FindObjectOfType<TutorialMenu>().isFinished)
+        {
+            HandManager.Instance.DrawHand();
+        }
         StartCoroutine(waitToStart());
+
+        FindObjectOfType<TutorialMenu>().Show();
     }
 
     IEnumerator waitToStart()
@@ -140,12 +146,16 @@ public class GameRoundManager : Singleton<GameRoundManager>
             StartCoroutine(FinishLevel());
             return;
         }
-        timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (FindObjectOfType<TutorialMenu>().isFinished)
         {
-            FindObjectOfType<WinLoseMenu>().ShowLose();
-            HandManager.Instance.ClearBattleHand();
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                FindObjectOfType<WinLoseMenu>().ShowLose();
+                HandManager.Instance.ClearBattleHand();
+            }
         }
         
         

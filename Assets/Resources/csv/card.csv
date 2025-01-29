@@ -1,7 +1,7 @@
 ﻿identifier,actions,start,title,desc,canDraw,exhaust,unlockAt
-infect,infect|1,2,Infect,"Infect everything in a circle, can use once per day",1,1,4
+infect,infect|1,2,Infect,"Infect everything in a circle, can use once per day",0,1,4
 sneeze,sneeze|1,1,Sneeze,Infected human will create an area that will infect others,1,,0
-touch,touch|3,0,Touch,Infected ones will infect next 3 uninfected ones they touch,1,,0
+touch,touch|3,1,Touch,Infected ones will infect next 3 uninfected ones they touch,1,,0
 infectAnimal,infectAnimal|1,0,Infect Animal,Infect animals in a circle,1,,4
 infectInanimated,infectInanimated|1,0,Infect Bin,Infect garbage bins in a circle,1,,2
 explodeBin,explodeBin|1,0,Explode Bin,infect an area around a garbage bin,1,,2

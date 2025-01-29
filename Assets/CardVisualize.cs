@@ -73,6 +73,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
     public void OnPlace()
     {
+
+        FindObjectOfType<TutorialMenu>().StartCoroutine( FindObjectOfType<TutorialMenu>().FinishUseCard());
        // Debug.LogError("place");
         Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
 
@@ -85,7 +87,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         
         for (int i = 0; i < count; i++)
         {
-            Debug.Log($"Overlapping with: {results[i].name}");
+            //Debug.Log($"Overlapping with: {results[i].name}");
             if (results[i].GetComponent<Human>())
             {
                 var human = results[i].GetComponent<Human>();
@@ -114,6 +116,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             
                             results[i].GetComponent<Human>().Sneeze(cardInfo);
+                            FindObjectOfType<TutorialMenu>().FinishSneeze();
                         }
                         break;
                     case "explodeBin":
@@ -210,7 +213,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         
         for (int i = 0; i < count; i++)
         {
-            Debug.Log($"Overlapping with: {results[i].name}");
+            //Debug.Log($"Overlapping with: {results[i].name}");
             if (results[i].GetComponent<Human>())
             {
                 var human = results[i].GetComponent<Human>();

@@ -399,7 +399,7 @@ public class Human : MonoBehaviour
             return;
         }
         // 获取碰撞到的物体的名称
-        Debug.Log("Collided with: " + other.gameObject.name);
+       // Debug.Log("Collided with: " + other.gameObject.name);
 
         // 获取碰撞的接触点
         // foreach (var contact in other.contacts)

@@ -29,7 +29,14 @@ public class HandsView : Singleton<HandsView>
         drawButton.onClick.AddListener(() =>
         {
             DrawCard();
+            FindObjectOfType<TutorialMenu>(). FinishUseRedraw();
         });
+        drawButton.gameObject.SetActive(false);
+    }
+
+    public void showRedrawButton()
+    {
+        drawButton.gameObject.SetActive(true);
     }
 
     public void DrawCard()

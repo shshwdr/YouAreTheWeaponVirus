@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
         HandleZoom();
     }
 
+    private int cameraMoveUsed = 0;
+    private int cameraScrollUsed = 0;
     // 处理镜头移动
     void HandleMovement()
     {
@@ -26,10 +28,34 @@ public class CameraController : MonoBehaviour
         float moveY = 0f;
 
         // 监听键盘输入（AWSD）
-        if (Input.GetKey(KeyCode.W)) moveY += 1f;
-        if (Input.GetKey(KeyCode.S)) moveY -= 1f;
-        if (Input.GetKey(KeyCode.A)) moveX -= 1f;
-        if (Input.GetKey(KeyCode.D)) moveX += 1f;
+        if (Input.GetKey(KeyCode.W))
+        {
+            moveY += 1f;
+            cameraMoveUsed ++;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            moveY -= 1f;
+            cameraMoveUsed ++;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            moveX -= 1f;
+            cameraMoveUsed ++;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            moveX += 1f;
+            cameraMoveUsed ++;
+        }
+
+        if (cameraMoveUsed >= 2)
+        {
+            FindObjectOfType<TutorialMenu>().FinishMove();
+        }
 
         // 根据输入移动镜头
         Vector3 move = new Vector3(moveX, moveY, 0f) * moveSpeed * Time.deltaTime;
@@ -43,5 +69,22 @@ public class CameraController : MonoBehaviour
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
         camera.orthographicSize -= scrollInput * zoomSpeed;
         camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, minZoom, maxZoom);
+
+        if (cameraMoveUsed >= 2)
+        {
+            
+            if (scrollInput > 0)
+            {
+                cameraScrollUsed++;
+            }
+            else if (scrollInput < 0)
+            {
+                cameraScrollUsed++;
+            }
+            if (cameraScrollUsed>=2)
+            {
+                FindObjectOfType<TutorialMenu>().FinishScroll();
+            }
+        }
     }
 }
