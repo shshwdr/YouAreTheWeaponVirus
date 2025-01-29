@@ -35,7 +35,7 @@ public class SkillDetector : MonoBehaviour
             if (human && human.canBeActioned())
             {
                 
-                if (thisHuman.info.identifier == "VIROLOGIST")
+                if (thisHuman.info.identifier == "rivo")
                 {
                     if (human && human.isHuman && !human.isFullHealthy())
                     {

@@ -12,6 +12,7 @@ public class CardInfo
     public string desc;
     public bool canDraw;
     public bool exhaust;
+    public int unlockAt;
 }
 
 public class LevelInfo
@@ -34,6 +35,7 @@ public class CharacterInfo
     public string characterType;
     public string prefab;
     public string title;
+    public string portrait;
     public string desc;
 
 }

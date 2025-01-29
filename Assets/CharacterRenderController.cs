@@ -22,6 +22,7 @@ public class CharacterRenderController : MonoBehaviour
 
     public CharacterRenderer explosion;
     public CharacterRenderer ghost;
+    public CharacterRenderer skillDetector;
     public CharacterRenderer sneeze;
 
     public CharacterRenderer infectAnimation;
@@ -56,6 +57,12 @@ public class CharacterRenderController : MonoBehaviour
         }
         
         healAnimation.Init(3);
+        if (info.identifier == "samuri" || info.identifier == "viro")
+        {
+            skillDetector.gameObject.SetActive(true);
+            skillDetector.Init(3);
+            skillDetector.PlayLoop();
+        }
         infectAnimation.Init(3);
         teleportAnimation.Init(5);
         skillSamuriAnimation.Init(9);
@@ -124,6 +131,58 @@ public class CharacterRenderController : MonoBehaviour
         }
         updateFrame();
         ChangeSprite(currentDirection);  // 切换精灵
+        
+        var thisHuman = GetComponent<Human>();
+        if (thisHuman.isDead)
+        {
+            return;
+        }
+
+        if (thisHuman.isInfected )
+        {
+            return;
+        }
+        if (!thisHuman.canBeActioned())
+        {
+            return;
+        }
+
+        if (thisHuman.info.identifier == "viro" || thisHuman.info.identifier == "samuri")
+        {
+            foreach (var human in HumanSpawner.Instance.humans)
+            {if (human && human.canBeActioned())
+                {
+                if (Vector2.Distance(human.transform.position, transform.position) <= 2)
+                {
+                  
+                
+                
+                    if (thisHuman.info.identifier == "viro")
+                    {
+                        if (human && human.isHuman && !human.isFullHealthy())
+                        {
+                    
+                            thisHuman.HealOther(human);
+                            return;
+                        }
+                    }
+                    else if (thisHuman.info.identifier == "samuri")
+                    {
+                
+                        if (human && human.isHuman && human.isInfected && !human.isDead)
+                        {
+                    
+                            thisHuman.Attack(human);
+                            return;
+                        }
+                    }
+                }  
+                }
+            }
+        }
+        {
+            
+        }
     }
     public void UpdateDir(Vector3 dir)
     {

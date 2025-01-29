@@ -26,7 +26,7 @@ public class MenuBase : MonoBehaviour
         {
             
             var color = menu.GetComponent<Image>().color;
-            color.a = 0.7f;
+            color.a = 1f;
             menu.GetComponent<Image>().color = color;
         }
 

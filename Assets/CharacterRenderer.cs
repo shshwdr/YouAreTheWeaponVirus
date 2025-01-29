@@ -16,6 +16,10 @@ public class CharacterRenderer : MonoBehaviour
     private float swapFrameTimer = 0;
     public SpriteRenderer spriteRenderer;
     public int frameMax;
+
+    private bool isPlaying = false;
+    private bool reversePlay = false;
+    private bool isLoop = false;
     public void SetSprite(int spriteIndex)
     {
         if (walkSprites != null)
@@ -26,8 +30,7 @@ public class CharacterRenderer : MonoBehaviour
             spriteRenderer.sprite = walkSprites[spriteIndex];
         }
     }
-
-    private bool isPlaying = false;
+    
     public void PlayOnce()
     {
         gameObject.SetActive(true);
@@ -35,7 +38,13 @@ public class CharacterRenderer : MonoBehaviour
         isPlaying = true;
     }
 
-    private bool reversePlay = false;
+    public void PlayLoop()
+    {
+        gameObject.SetActive(true);
+        currentFrame = 0;
+        isPlaying = true;
+        isLoop = true;
+    }
 
     public void PlayReverseOnce()
     {
@@ -64,6 +73,7 @@ public class CharacterRenderer : MonoBehaviour
         }
 
         bool finishedPlay = false;
+        
         if (reversePlay)
         {
             finishedPlay = currentFrame < 0;
@@ -74,8 +84,16 @@ public class CharacterRenderer : MonoBehaviour
         }
         if (finishedPlay)
         {
-            isPlaying = false;
-            gameObject.SetActive(false);
+            if (isLoop)
+            {
+                currentFrame = 0;
+                SetSprite(currentFrame);
+            }
+            else
+            {
+                isPlaying = false;
+                gameObject.SetActive(false);
+            }
         }
         else
         {

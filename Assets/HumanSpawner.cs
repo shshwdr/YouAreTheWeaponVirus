@@ -14,15 +14,21 @@ public class HumanSpawner : Singleton<HumanSpawner>
         var points = levelParent.Find("points");
         return points.Find(index).transform.position;
     }
-    // Start is called before the first frame update
-    public void Init(Transform levelParent)
+
+    public void clear()
     {
-        this.levelParent = levelParent;
+        
         foreach (var human in humans)
         {
             Destroy(human.gameObject);
         }
         humans.Clear();
+    }
+    // Start is called before the first frame update
+    public void Init(Transform levelParent)
+    {
+        clear();
+        this.levelParent = levelParent;
         var area = levelParent.Find("areas");
         var points = levelParent.Find("points");
 

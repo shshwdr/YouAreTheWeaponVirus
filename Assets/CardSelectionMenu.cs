@@ -15,21 +15,11 @@ public class CardSelectionMenu : MenuBase
         cards = cardsParent.GetComponentsInChildren<CardVisualize>();
     }
 
-    public override void Show()
+    protected override void Start()
     {
-        base.Show();
-        
-        GameHud.Instance.gameObject.SetActive(false);
-        HandsView.Instance.gameObject.SetActive(false);
-        
-        var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw).ToList();
-
+        base.Start();
         for (int i = 0; i < 3; i++)
         {
-            var pick = cardsToPick.PickItem();
-            cards[i].Init(pick);
-            cards[i].isDraggable = false;
-            cards[i].GetComponent<Button>().enabled = true;
             var tmpi = i;
             cards[i].GetComponent<Button>().onClick.AddListener(() =>
                 {
@@ -41,6 +31,24 @@ public class CardSelectionMenu : MenuBase
 
                 }
             );
+        }
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        HumanSpawner.Instance.clear();
+        GameHud.Instance.gameObject.SetActive(false);
+        HandsView.Instance.gameObject.SetActive(false);
+        
+        var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw&&x.unlockAt<=GameRoundManager.Instance.currentLevel).ToList();
+
+        for (int i = 0; i < 3; i++)
+        {
+            var pick = cardsToPick.PickItem();
+            cards[i].Init(pick);
+            cards[i].isDraggable = false;
+            cards[i].GetComponent<Button>().enabled = true;
         }
     }
 

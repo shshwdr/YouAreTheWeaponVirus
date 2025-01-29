@@ -38,6 +38,7 @@ public class GameRoundManager : Singleton<GameRoundManager>
 
     public void ShowDialogue()
     {
+        
         FindObjectOfType<DialogueMenu>(true).Show();
     }
     
@@ -102,6 +103,23 @@ public class GameRoundManager : Singleton<GameRoundManager>
             }
         }
     }
+
+    IEnumerator FinishLevel()
+    {
+        yield return new WaitForSeconds(2);
+        if (isMaxLevel)
+        {
+                
+            FindObjectOfType<WinLoseMenu>().ShowWin();
+        }
+        else
+        {
+            FindObjectOfType<CardSelectionMenu>().Show();
+        }
+            
+            
+        HandManager.Instance.ClearBattleHand();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -118,18 +136,8 @@ public class GameRoundManager : Singleton<GameRoundManager>
         if (HumanSpawner.Instance.isAllAffected())
         {
             isFinished = true;
-            if (isMaxLevel)
-            {
-                
-                FindObjectOfType<WinLoseMenu>().ShowWin();
-            }
-            else
-            {
-                FindObjectOfType<CardSelectionMenu>().Show();
-            }
-            
-            
-            HandManager.Instance.ClearBattleHand();
+
+            StartCoroutine(FinishLevel());
             return;
         }
         timer -= Time.deltaTime;

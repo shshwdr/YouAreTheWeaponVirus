@@ -16,6 +16,7 @@ public class DialogueMenu : MenuBase
     public LevelAsIcons speed;
     public LevelAsIcons hp;
     public Image characterImage;
+    public Image characterPortrait;
     protected override void Start()
     {
         //base.Awake();
@@ -75,6 +76,16 @@ public class DialogueMenu : MenuBase
                 characterTitle.text = characterInfo.title;
                 characterDesc.text = characterInfo.desc;
                 characterImage.sprite = characterSprite(characterInfo);
+                var portrait = Resources.Load<Sprite>("characterPortraite/" + characterInfo.portrait);
+                if (portrait)
+                {
+                    characterPortrait.sprite = portrait;
+                    characterPortrait.gameObject.SetActive(true);
+                }
+                else
+                {
+                    characterPortrait.gameObject.SetActive(false);
+                }
                 speed.Init(characterInfo.speed, characterInfo.speed);
                 hp.Init(characterInfo.hp, characterInfo.hp);
             }
