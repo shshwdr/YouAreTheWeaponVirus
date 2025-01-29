@@ -147,6 +147,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             results[i].GetComponent<Human>().buffManager
                                 .SetBuff("touch", int.Parse(cardInfo.actions[1]));
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_touch_infection");
                         }
 
                         break;
