@@ -60,6 +60,8 @@ MonoBehaviour:
   desc: {fileID: 5358299624285750008}
   selectionCirclePrefab: {fileID: 4624696197399780817, guid: 952f43590b262284d8542d9fca7cc95d, type: 3}
   hoverTrans: {fileID: 2043558933827330017}
+  setPosition: 0
+  stonePrefab: {fileID: 1259605782040750979, guid: 992b0a7fc7bffa64da989ebf39aaed5c, type: 3}
 --- !u!222 &6958913004139308067
 CanvasRenderer:
   m_ObjectHideFlags: 0

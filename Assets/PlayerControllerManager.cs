@@ -95,8 +95,13 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
        //  // 更新当前 Building 的位置
          currentDragging.transform.position = mousePosition;
 
-         var canPlace = true;
-         if (canPlace)
+         
+         var canPlace = currentDraggingCell.CanPlace();;
+         
+         
+         
+         
+         
          {
              if (Input.GetMouseButtonUp(0)) // 左键放下
                  {

@@ -19,19 +19,32 @@ public class LevelController : MonoBehaviour
         //StartCoroutine(generate(level));
     }
 
-    IEnumerator generate(Transform level)
-    {
-        yield return new WaitForSeconds(0.01f);
-        
-        HumanSpawner.Instance.Init(level);
-        AstarPath pathfinder = AstarPath.active;
-        pathfinder.Scan();
-    }
+    
+    
 
     void Generate(Transform level)
     {
         HumanSpawner.Instance.Init(level);
+        Rescan();
+    }
+
+    public void Rescan()
+    {
+        
         AstarPath pathfinder = AstarPath.active;
         pathfinder.Scan();
+    }
+
+    public void RescanAndReSeek()
+    {
+        Rescan();
+        
+        foreach (var human in HumanSpawner.Instance.humans)
+        {
+            if (!human.isDead && !human.isPausedMoving)
+            {
+                human.RestartMoving();
+            }
+        }
     }
 }

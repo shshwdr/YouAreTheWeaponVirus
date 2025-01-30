@@ -27,7 +27,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
     public CardInfo cardInfo;
     public bool setPosition;
-
+    public GameObject stonePrefab;
     public void Init(CardInfo info)
     {
         cardInfo = info;
@@ -73,6 +73,34 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         PlayerControllerManager.Instance.StartDragging(selectionCircle,this);
     }
 
+    public bool CanPlace()
+    {
+        var res = true;
+
+        if (cardInfo.actions[0] == "summonStone")
+        {
+            Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
+
+            // 检测重叠
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            contactFilter.useTriggers = true; // 允许触发器参与检测
+            int count = selectionCircle.GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
+            for (int i = 0; i < count; i++)
+            {
+                //Debug.Log($"Overlapping with: {results[i].name}");
+                if (results[i].GetComponent<Human>())
+                {
+                    var human = results[i].GetComponent<Human>();
+                    if (human && !human.isDead)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
     public void OnPlace()
     {
 
@@ -130,6 +158,14 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         }
                         break;
                     
+                    case "stun":
+                        if (human.isHuman)
+                        {
+                            
+                            results[i].GetComponent<Human>().Stun(cardInfo);
+                        }
+                        break;
+                    
                     case "explodeNonHuman":
                         
                         if (!human.isHuman &&  human.isInfected)
@@ -182,6 +218,9 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         }
 
                         break;
+                    case "summonStone":
+                        foundTarget = true;
+                        break;
                         
                 }
 
@@ -201,6 +240,20 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 infected.Teleport(selectionCircle.transform.position);
 
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_teleport");
+            }
+        }
+
+        if (cardInfo.actions[0] == "summonStone")
+        {
+            if (!foundTarget)
+            {
+                
+                var go = Instantiate(stonePrefab, selectionCircle.transform.position, Quaternion.identity, GameRoundManager.Instance.tempTrans);
+                
+                Physics2D.SyncTransforms();
+
+                FindObjectOfType<LevelController>().RescanAndReSeek();
+
             }
         }
         
@@ -279,6 +332,15 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         }
                         break;
                     
+                    case "stun":
+                        
+                        if (human.isHuman)
+                        {
+                            
+                            human.DrawOutline(true);
+                        }
+                        break;
+                    
                     case "explodeNonHuman":
                         
                         if (!human.isHuman &&  human.isInfected)
@@ -319,6 +381,9 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             human.DrawOutline(true);
                         }
 
+                        break;
+                    case "summonStone":
+                        human.DrawOutline(true);
                         break;
                 }
             }

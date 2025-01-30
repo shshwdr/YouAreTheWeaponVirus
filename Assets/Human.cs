@@ -22,11 +22,14 @@ public class Human : MonoBehaviour
     private LevelAsIcons hpBar;
     private float immunityTime = 2f;
     private float immunityTimer = 0;
+    private float stunTime = 5;
+    private float stunTimer = 10;
     public SpriteRenderer imunityRenderer;
     public bool isInfected = false;
     public CharacterInfo info;
     private CharacterRenderController characterRenderer;
     public GameObject ouline;
+    public GameObject stunObject;
     private HumanAI ai;
     public bool isHuman => info.characterType == "human";
     public bool isBin => info.characterType == "bin";
@@ -43,7 +46,7 @@ public class Human : MonoBehaviour
     private float skillTime = 0.3f;
     private float skillTimer = 0;
     private bool isSkill = false;
-
+    public bool isStuned => stunTimer <= stunTime;
     public int HP => info.hp;
     public int currentHp = 0;
     public LevelDesignInfo levelDesignInfo;
@@ -90,8 +93,22 @@ public class Human : MonoBehaviour
         {
             return;
         }
+
+        var wasStunned = isStuned;
         immunityTimer+= Time.deltaTime;
         touchTimer += Time.deltaTime;
+        
+        stunTimer+= Time.deltaTime;
+
+        if (wasStunned && !isStuned)
+        {
+            FinishedStun();
+        }
+
+        if (isStuned)
+        {
+            return;
+        }
 
         if (isSkill)
         {
@@ -128,6 +145,23 @@ public class Human : MonoBehaviour
         GetComponent<CharacterRenderController>().GetInfected(0);
         
         buffManager.SetBuff("touch",0);
+    }
+
+    public void Stun(CardInfo info)
+    {
+        if (!isStuned)
+        {
+            
+            stunTimer = 0;
+            StopMoving();
+            stunObject.SetActive(true);
+        }
+    }
+
+    void FinishedStun()
+    {
+        RestartMoving();
+        stunObject.SetActive(false);
     }
     public void InfectFull()
     {
@@ -382,7 +416,7 @@ public class Human : MonoBehaviour
 
     public bool canBeActioned()
     {
-        return !isDead && !isPausedMoving;
+        return !isDead && !isPausedMoving && !isStuned;
     }
     
     private void OnCollisionEnter2D(Collision2D other)
