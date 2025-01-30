@@ -110,6 +110,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         if (human.isBin)
                         {
                             human.Infect(cardInfo);
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_bin_contamination");
                         }
 
                         break;
@@ -144,6 +146,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                             //human.Hide();
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_bin_explosion");
                         }
                         break;
                     case "explodeHuman":
@@ -153,6 +157,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             foundTarget = true;
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                             //human.Hide();
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_human_explosion");
                         }
                         break;
                     case "explodeAnimal":

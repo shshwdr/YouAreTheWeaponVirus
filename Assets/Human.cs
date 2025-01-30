@@ -170,6 +170,8 @@ public class Human : MonoBehaviour
     private Vector3 samuraiSkillPosition;
     IEnumerator ienumeratorAttack(Human human)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ninja_slice");
+
         yield return new WaitForSeconds(0.5f);
         human.Die();
         samuraiSkillPosition = characterRenderer.skillSamuriAnimation.transform.position;

@@ -30,7 +30,9 @@ public class WinLoseMenu : MenuBase
         // {
         //     nextLevel.gameObject.SetActive(false);
         // }
-        
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_level_win");
+
         Show();
     }
     public void ShowLose()
@@ -39,6 +41,8 @@ public class WinLoseMenu : MenuBase
         title.text = "You Lose!";
         dialogue.text = "You lost? What a pity... What? You expect me to do something? Go and try it again!";
         Show();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_level_lose");
     }
     // Start is called before the first frame update
     void Start()
