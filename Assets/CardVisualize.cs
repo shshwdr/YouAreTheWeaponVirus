@@ -167,6 +167,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         {
                             
                             results[i].GetComponent<Human>().Stun(cardInfo);
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_stunt");
                         }
                         break;
                     
@@ -257,6 +259,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 Physics2D.SyncTransforms();
 
                 FindObjectOfType<LevelController>().RescanAndReSeek();
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_create_rock");
 
             }
         }
