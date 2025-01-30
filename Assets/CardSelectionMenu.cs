@@ -49,6 +49,8 @@ public class CardSelectionMenu : MenuBase
             cards[i].Init(pick);
             cards[i].isDraggable = false;
             cards[i].GetComponent<Button>().enabled = true;
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_level_win");
         }
     }
 

@@ -128,6 +128,8 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                             //human.Hide();
+
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_bin_explosion");
                         }
                         break;
                     case "explodeHuman":

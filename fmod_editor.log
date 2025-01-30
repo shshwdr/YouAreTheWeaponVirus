@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000228A055FF58 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000022992296C98 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,10 +18,47 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SoundI::release                          :  (000002296A168BE8)
+[LOG] SoundI::release                          :     sfx_ui_next_dialog_2 (00000228973111F8)
+[LOG] SoundI::release                          :  (000002296A167938)
+[LOG] SoundI::release                          :     sfx_ui_next_dialog_3 (0000022897311538)
+[LOG] SoundI::release                          :  (00000228985D8028)
+[LOG] SoundI::release                          :     sfx_teleport (0000022873387AA8)
+[LOG] SoundI::release                          :  (00000228A06F39B8)
+[LOG] SoundI::release                          :     gameplay_music_loop (0000022897312F38)
+[LOG] SoundI::release                          :  (00000228985D95B8)
+[LOG] SoundI::release                          :     sfx_man_sneeze_1 (0000022873388FC8)
+[LOG] SoundI::release                          :  (00000228985D7A68)
+[LOG] SoundI::release                          :     sfx_man_sneeze_2 (0000022873387908)
+[LOG] SoundI::release                          :  (00000228AC1C3F28)
+[LOG] SoundI::release                          :     sfx_human_infected_1 (00000228739521E8)
+[LOG] SoundI::release                          :  (00000228AC1C4098)
+[LOG] SoundI::release                          :     sfx_human_infected_2 (0000022873952D48)
+[LOG] SoundI::release                          :  (00000228985D7BD8)
+[LOG] SoundI::release                          :     sfx_touch_infection_version_2 (00000228733875C8)
+[LOG] SoundI::release                          :  (00000228AC1C4208)
+[LOG] SoundI::release                          :     sfx_draw_card (0000022873953A48)
+[LOG] SoundI::release                          :  (00000228985D8D18)
+[LOG] SoundI::release                          :     sfx_human_explosion (0000022873387F88)
+[LOG] SoundI::release                          :  (00000228294B6918)
+[LOG] SoundI::release                          :     sfx_mouse_over_card_2 (0000022897310018)
+[LOG] SoundI::release                          :  (000002296A6121F8)
+[LOG] SoundI::release                          :     sfx_mouse_over_card_1 (00000228973101B8)
+[LOG] SoundI::release                          :  (00000228985D7D48)
+[LOG] SoundI::release                          :     sfx_ninja_slice_1 (0000022873387C48)
+[LOG] SoundI::release                          :  (00000228985D88C8)
+[LOG] SoundI::release                          :     sfx_ninja_slice_2 (00000228733887A8)
+[LOG] SoundI::release                          :  (00000228A06F3848)
+[LOG] SoundI::release                          :     gameplay_music_lose (0000022897312578)
+[LOG] SoundI::release                          :  (00000228294B5F08)
+[LOG] SoundI::release                          :     gameplay_music_victory (0000022897312BF8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.

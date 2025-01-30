@@ -39,6 +39,8 @@ public class WinLoseMenu : MenuBase
         title.text = "You Lose!";
         dialogue.text = "You lost? What a pity... What? You expect me to do something? Go and try it again!";
         Show();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_level_lose");
     }
     // Start is called before the first frame update
     void Start()
