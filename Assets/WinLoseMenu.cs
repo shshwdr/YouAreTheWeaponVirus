@@ -30,7 +30,9 @@ public class WinLoseMenu : MenuBase
         // {
         //     nextLevel.gameObject.SetActive(false);
         // }
-        
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_level_win");
+
         Show();
     }
     public void ShowLose()
