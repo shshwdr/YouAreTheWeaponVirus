@@ -29,7 +29,7 @@ public class TutorialMenu : MenuBase
         
         { "tutorialSneeze", "Drag the sneeze card and use on the infected human" },
         { "tutorialSneezeFailed", "No, you need to drag the sneeze card and use on the infected human, try it again." },
-        { "tutorialRedraw", "Click redraw to redraw your cards. Remember the Infect card would exhausted after usage" },
+        { "tutorialRedraw", "Click draw button to redraw your cards. Remember the Infect card would exhausted after usage" },
         { "tutorialEnd", "That's all you need to know, and infect all of them in time! (Click to continue)" },
     };
 

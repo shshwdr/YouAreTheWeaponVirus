@@ -85,7 +85,7 @@ public class HumanSpawner : Singleton<HumanSpawner>
     {
         foreach (var human in humans)
         {
-            if (!human.isInfected)
+            if (!human.isInfected && human.isHuman)
             {
                 return false;
             }

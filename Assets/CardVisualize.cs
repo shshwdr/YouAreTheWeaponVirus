@@ -66,7 +66,9 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
             
             selectionCircle = Instantiate(selectionCirclePrefab);
         }
-        
+
+        var radius = float.Parse(cardInfo.actions[1]);
+        selectionCircle.transform.localScale = Vector3.one * radius;
         selectionCircle.SetActive(true);
         PlayerControllerManager.Instance.StartDragging(selectionCircle,this);
     }
@@ -84,7 +86,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         int count = selectionCircle.GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
         HandManager.Instance.useCard(cardInfo);
-        
+        bool foundTarget = false;
         for (int i = 0; i < count; i++)
         {
             //Debug.Log($"Overlapping with: {results[i].name}");
@@ -94,9 +96,15 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 switch (cardInfo.actions[0])
                 {
                     case "infect":
-                        
+                        foundTarget = true;
                         //Debug.LogError("infect");
                         human.Infect(cardInfo);
+                        break;
+                    case "infectNonHuman":
+                        if (human.isAnimal || human.isBin)
+                        {
+                            human.Infect(cardInfo);
+                        }
                         break;
                     case "infectInanimated":
                         if (human.isBin)
@@ -160,6 +168,11 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         break;
                         
                 }
+
+                if (foundTarget && cardInfo.selectType == 1)
+                {
+                    break;
+                }
             }
         }
 
@@ -210,7 +223,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         {
             human.DrawOutline(false);
         }
-        
+        bool foundTarget = false;
         for (int i = 0; i < count; i++)
         {
             //Debug.Log($"Overlapping with: {results[i].name}");
@@ -220,7 +233,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 switch (cardInfo.actions[0])
                 {
                     case "infect":
-                        
+                        foundTarget = true;
                         human.DrawOutline(true);
                         break;
                     case "infectInanimated":
@@ -229,6 +242,12 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             human.DrawOutline(true);
                         }
 
+                        break;
+                    case "infectNonHuman":
+                        if (human.isAnimal || human.isBin)
+                        {
+                            human.DrawOutline(true);
+                        }
                         break;
                     case "infectAnimal":
                         if (human.isAnimal)
@@ -275,6 +294,11 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
 
                         break;
                 }
+            }
+            
+            if (foundTarget && cardInfo.selectType == 1)
+            {
+                break;
             }
         }
         
