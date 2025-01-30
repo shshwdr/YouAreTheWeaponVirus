@@ -53,7 +53,10 @@ public bool isFinished = false;
     {
         if (isFinished)
         {
-            currentTutorialId = tutorialsKeys.Count();
+            
+            Hide();
+            return;
+            //currentTutorialId = tutorialsKeys.Count();
         }
         currentTutorialId++;
         if (currentTutorialId < tutorialsKeys.Count)
@@ -92,6 +95,8 @@ public bool isFinished = false;
         blockButton.SetActive(false);
         HandManager.Instance.DrawHand();
         HandsView.Instance.showRedrawButton();
+        
+        GameHud.Instance.StartProgressBar();
         foreach (var human in HumanSpawner.Instance.humans)
         {
             human.RestartMoving();

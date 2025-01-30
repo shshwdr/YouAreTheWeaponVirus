@@ -1,48 +1,55 @@
-﻿level,text,characterInfo
-1,"Hello there, I’m the all-mighty hive mind.",
-1,You must be the 56th version of Mycosis Prime. Nice to finally meet you. ,
-1,"Let’s start with something simple. Try to infect these poor, defenseless elders. ",elder
-1,"You should be able to do this pretty easily, I hope.",elder
-2,"If you are wondering, you are a disease created by an intelligent but very weak alien civilization called Mycelons.",
-2,Now see these young humans? ,student
-2,Their sole purpose is to annoy everybody around them. I would cover my ears if I had any.,student
-2, It’s time to give them a present. Infect all of them!,student
-2,"Unless you feel sorry for them in which case…well, do it anyway.",student
-2,They move faster and are harder to get infected so be wise with your choices.,student
-3,The disease is a perfect weapon. It helped us invade other planets very easily. ,
-3,"You are one of the best of them, not many others have achieved so far..Wait..",
-3,Mmmm…those garbage bins smell delicious. But they are useful as well. ,bin
-3,"They are not human, a fact I really hope you realized before I said it,  but they can be used to spread spores as well.",bin
-3,You can take some snacks from there after you are finished.,bin
-4,"Alright, back to the topic. You are the 56th iteration of said disease.",
-4,Your goal is to infect every human and prepare the planet for the invasion. ,
-4,Look at these pathetic business humans.,businessman
-4,Running around all day yelling at everybody. ,businessman
-4,And they honestly believe they are doing something important. ,businessman
-4,"Even I could do that. If, you know, I had a real body.",businessman
-4,"Anyway, let’s make them actually useful.",businessman
-5,These small creatures are called squirrels.,squirrel
-5,They are always moving. It’s driving me crazy.,squirrel
-5,"Although, I must admit they look cute.",squirrel
-5,Try to infect them! Let’s see how much cuter they will become.,squirrel
-6,Those evil walls are making our work much more complicated.,
-6,We need to do something about them.,
-6,"No, we won’t be infecting them. How would that even work?",
-6,"No, do you see those flying squirrels? They are called birds.",bird
-6,"Infect them, and they will fly over the walls.",bird
-7,What's the point of this virologist?,viro
-7,Why would she help others stay healthy when they will all die anyway?,viro
-7,Pretty useless if you ask me.,viro
-7,How about showing her how useless her job actually is?,viro
-8,"Oh, this won’t be that easy.",samuri
-8,He would kill any infected humans close to him.,samuri
-8,Even children and elders.,samuri
-8,He probably finds them as annoying as I do. ,samuri
-8,"However, he has a soft spot for animals, so…you know. Animals.",samuri
-8,Go for it. Don’t disappoint me!,samuri
-55,The doctors are weird. ,doctor
-55,"Always cover their faces, stay in a small area, afraid they will get ill or something.",doctor
-55,If I needed breathing to survive I would definitely suffocate with that thing on my face…,doctor
-55,…If I would have an existing face to begin with.,doctor
-55,Let’s make them do something actually useful and spread the spores to even more humans.,doctor
-55,"It won’t be that easy with that underwear on their head, but I’m sure you can figure it out.",doctor
+﻿level,text,characterInfo,,
+1,"Hello there, I’m the all-mighty hive mind.",,,
+1,You must be the 56th version of Mycosis Prime. Nice to finally meet you. ,,,
+1,"Let’s start with something simple. Try to infect these poor, defenseless elders. ",elder,,
+1,"You should be able to do this pretty easily, I hope.",elder,,
+2,"If you are wondering, you are a disease created by an intelligent but very weak alien civilization called Mycelons.",,,
+2,Now see these young humans? ,student,,
+2,Their sole purpose is to annoy everybody around them. I would cover my ears if I had any.,student,,
+2, It’s time to give them a present. Infect all of them!,student,,
+2,"Unless you feel sorry for them in which case…well, do it anyway.",student,,
+2,They move faster and are harder to get infected so be wise with your choices.,student,,
+3,The disease is a perfect weapon. It helped us invade other planets very easily. ,,,
+3,"You are one of the best of them, not many others have achieved so far..Wait..",,,
+3,Mmmm…those garbage bins smell delicious. But they are useful as well. ,bin,,
+3,"They are not human, a fact I really hope you realized before I said it,  but they can be used to spread spores as well.",bin,,
+3,You can take some snacks from there after you are finished.,bin,,
+4,"Alright, back to the topic. You are the 56th iteration of said disease.",,,
+4,Your goal is to infect every human and prepare the planet for the invasion. ,,,
+4,Look at these pathetic business humans.,businessman,,
+4,Running around all day yelling at everybody. ,businessman,,
+4,And they honestly believe they are doing something important. ,businessman,,
+4,"Even I could do that. If, you know, I had a real body.",businessman,,
+4,"Anyway, let’s make them actually useful.",businessman,,
+5,These small creatures are called squirrels.,squirrel,,
+5,They are always moving. It’s driving me crazy.,squirrel,,
+5,"Although, I must admit they look cute.",squirrel,,
+5,Try to infect them! Let’s see how much cuter they will become.,squirrel,,
+6,Those evil walls are making our work much more complicated.,,,
+6,We need to do something about them.,,,
+6,"No, we won’t be infecting them. How would that even work?",,,
+6,"No, do you see those flying squirrels? They are called birds.",bird,,
+6,"Infect them, and they will fly over the walls.",bird,,
+7,What's the point of this virologist?,viro,,
+7,Why would she help others stay healthy when they will all die anyway?,viro,,
+7,Pretty useless if you ask me.,viro,,
+7,How about showing her how useless her job actually is?,viro,,
+8,"Oh, this won’t be that easy.",samuri,,
+8,He would kill any infected humans close to him.,samuri,,
+8,Even children and elders.,samuri,,
+8,He probably finds them as annoying as I do. ,samuri,,
+8,"However, he has a soft spot for animals, so…you know. Animals.",samuri,,
+8,Go for it. Don’t disappoint me!,samuri,,
+55,The doctors are weird. ,doctor,,
+55,"Always cover their faces, stay in a small area, afraid they will get ill or something.",doctor,,
+55,If I needed breathing to survive I would definitely suffocate with that thing on my face…,doctor,,
+55,…If I would have an existing face to begin with.,doctor,,
+55,Let’s make them do something actually useful and spread the spores to even more humans.,doctor,,
+55,"It won’t be that easy with that underwear on their head, but I’m sure you can figure it out.",doctor,,
+65,The Mycelons are too proud to admit it,,,
+65,"but the truth is that if not for the intelligence you all have, except the first version, they wouldn’t be able to achieve anything.",,,
+65,Even they don’t know how intelligent you all actually are. ,,,
+65,I don’t think they would like the truth.,,,
+45,"When they created Mycosis Prime, it was a mess.",,,
+45,The first version of it managed to infect itself and died. Can you believe that?,,,
+45,You are doing much better. For now at least.,,,

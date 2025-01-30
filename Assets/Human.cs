@@ -174,7 +174,8 @@ public class Human : MonoBehaviour
         hpBar.gameObject.SetActive(false);
         // renderer.color = Color.green;
         GetComponent<CharacterRenderController>().GetInfected(1);
-        
+        characterRenderer.HideDetector();
+
     }
 
     public void Attack(Human human)

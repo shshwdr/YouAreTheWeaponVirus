@@ -32,6 +32,38 @@ PrefabInstance:
       propertyPath: spriteSheetPath
       value: BIRDMUSHROOM-Walk-SpriteSheet
       objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d98f39a1685868347b9a85d627754994, type: 3}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Color.a
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1333332
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 932571932495503238, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1617129523
+      objectReference: {fileID: 0}
     - target: {fileID: 1141822243553486985, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_Radius
       value: 0.3
@@ -82,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1491130785592541678, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.27
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1859093592446410044, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_SortingLayer
@@ -103,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 3454235532890492322, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912169719062925649, guid: 03133f22410eace4b81b033db845aa31, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1617129523
       objectReference: {fileID: 0}
     - target: {fileID: 5002366218283721186, guid: 03133f22410eace4b81b033db845aa31, type: 3}
       propertyPath: m_AnchorMax.y

@@ -93,6 +93,19 @@ public class HumanSpawner : Singleton<HumanSpawner>
         return true;
     }
 
+    public int infectedAnythingCount()
+    {
+        
+        int count = 0;
+        foreach (var human in humans)
+        {
+            if (human.isInfected )
+            {
+                count++;
+            }
+        }
+        return count;
+    }
     public int infectedCount()
     {
         int count = 0;

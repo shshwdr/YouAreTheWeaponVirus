@@ -124,9 +124,13 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 switch (cardInfo.actions[0])
                 {
                     case "infect":
+                        if (!human.isInfected)
+                        {
+                            
                         foundTarget = true;
                         //Debug.LogError("infect");
                         human.Infect(cardInfo);
+                        }
                         break;
                     case "infectNonHuman":
                         if (human.isAnimal || human.isBin)
@@ -278,7 +282,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
         ExitCard();
     }
 
-    public void OnDrag()
+    public bool OnDrag()
     {
         Collider2D[] results = new Collider2D[20]; // 假设最多检测 10 个碰撞体
 
@@ -302,32 +306,37 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 switch (cardInfo.actions[0])
                 {
                     case "infect":
-                        foundTarget = true;
-                        human.DrawOutline(true);
-                        break;
-                    case "infectInanimated":
-                        if (human.isBin)
+                        if (!human.isInfected)
                         {
+                            foundTarget = true;
                             human.DrawOutline(true);
                         }
-
                         break;
+                    // case "infectInanimated":
+                    //     if (human.isBin && !human.isInfected)
+                    //     {
+                    //         foundTarget = true;
+                    //         human.DrawOutline(true);
+                    //     }
+                    //
+                    //     break;
                     case "infectNonHuman":
-                        if (human.isAnimal || human.isBin)
+                        if (!human.isHuman && !human.isInfected)
                         {
+                             foundTarget = true;
                             human.DrawOutline(true);
                         }
                         break;
-                    case "infectAnimal":
-                        if (human.isAnimal)
-                        {
-                            human.DrawOutline(true);
-                        }
-                        break;
+                    // case "infectAnimal":
+                    //     if (human.isAnimal)
+                    //     {
+                    //         human.DrawOutline(true);
+                    //     }
+                    //     break;
                     case "sneeze":
                         if (human.isHuman &&  human.isInfected)
                         {
-                            
+                            foundTarget = true;
                             human.DrawOutline(true);
                         }
                         break;
@@ -336,7 +345,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         
                         if (human.isHuman)
                         {
-                            
+                            foundTarget = true;
                             human.DrawOutline(true);
                         }
                         break;
@@ -350,14 +359,14 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             //human.Hide();
                         }
                         break;
-                    case "explodeBin":
-                        
-                        if (human.isBin &&  human.isInfected)
-                        {
-                            
-                            human.DrawOutline(true);
-                        }
-                        break;
+                    // case "explodeBin":
+                    //     
+                    //     if (human.isBin &&  human.isInfected)
+                    //     {
+                    //         
+                    //         human.DrawOutline(true);
+                    //     }
+                    //     break;
                     case "explodeHuman":
                         
                         if (human.isHuman &&  human.isInfected)
@@ -367,23 +376,28 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             human.DrawOutline(true);
                         }
                         break;
-                    case "explodeAnimal":
-                        
-                        if (human.isAnimal &&  human.isInfected)
-                        {
-                            human.DrawOutline(true);
-                        }
-                        break;
+                    // case "explodeAnimal":
+                    //     
+                    //     if (human.isAnimal &&  human.isInfected)
+                    //     {
+                    //         human.DrawOutline(true);
+                    //     }
+                    //     break;
                     case "touch":
 
                         if (human.isInfected)
                         {
+                            foundTarget = true;
                             human.DrawOutline(true);
                         }
 
                         break;
                     case "summonStone":
+                    {
+                        
+                        foundTarget = true;
                         human.DrawOutline(true);
+                    }
                         break;
                 }
             }
@@ -393,9 +407,18 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                 break;
             }
         }
-        
-        
-        
+
+        if (cardInfo.actions[0] == "teleport")
+        {
+            return HumanSpawner.Instance.infectedAnythingCount() > 0;
+        }
+        else if (cardInfo.actions[0] == "summonStone")
+        {
+            return !foundTarget;
+        }
+
+        return foundTarget;
+
         //Destroy(gameObject);
     }
 

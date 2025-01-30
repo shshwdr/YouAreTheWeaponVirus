@@ -83,6 +83,11 @@ public class GameRoundManager : Singleton<GameRoundManager>
         {
             HumanSpawner.Instance.InfectAll();
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            HandManager.Instance.ClearBattleHand();
+            GameRoundManager.Instance.RestartLevel();
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartGame();

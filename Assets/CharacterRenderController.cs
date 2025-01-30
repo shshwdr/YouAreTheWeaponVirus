@@ -40,6 +40,12 @@ public class CharacterRenderController : MonoBehaviour
     // 更新人物状态（根据按键方向改变精灵）
     private Vector2 lastDir = Vector2.zero;  // 上一个方向
     private int[] index;
+
+    public void HideDetector()
+    {
+        
+        skillDetector.gameObject.SetActive(false);
+    }
     public void Init(CharacterInfo info)
     {
         characterType = info.characterType;
@@ -150,7 +156,12 @@ public class CharacterRenderController : MonoBehaviour
         if (thisHuman.info.identifier == "viro" || thisHuman.info.identifier == "samuri")
         {
             foreach (var human in HumanSpawner.Instance.humans)
-            {if (human && human.canBeActioned())
+            {
+                if (human == thisHuman)
+                {
+                    continue;
+                }
+                if (human && human.canBeActioned())
                 {
                 if (Vector2.Distance(human.transform.position, transform.position) <= 2)
                 {

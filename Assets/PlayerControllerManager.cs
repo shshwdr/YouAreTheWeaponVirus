@@ -96,13 +96,26 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
          currentDragging.transform.position = mousePosition;
 
          
-         var canPlace = currentDraggingCell.CanPlace();;
+       //  var canPlace = currentDraggingCell.CanPlace();;
          
          
          
          
          
          {
+             
+             if (IsInDropArea(mousePosition))
+             {
+                 uiDropAreaText.SetActive(true);
+             }
+             else
+             {
+                     
+                 uiDropAreaText.SetActive(false);
+                 //uiDropArea.GetComponent<CanvasGroup>().alpha = 0.5f;
+             }
+             var canPlace = currentDraggingCell.OnDrag();
+             
              if (Input.GetMouseButtonUp(0)) // 左键放下
                  {
                      if (IsInDropArea(mousePosition) ||!canPlace)
@@ -125,17 +138,6 @@ public class PlayerControllerManager : Singleton<PlayerControllerManager>
                  }
              else
              {
-                 if (IsInDropArea(mousePosition))
-                 {
-                     uiDropAreaText.SetActive(true);
-                 }
-                 else
-                 {
-                     
-                     uiDropAreaText.SetActive(false);
-                     //uiDropArea.GetComponent<CanvasGroup>().alpha = 0.5f;
-                 }
-                 currentDraggingCell.OnDrag();
              }
          }
          //  // 更新当前 Building 的位置

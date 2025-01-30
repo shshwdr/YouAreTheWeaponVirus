@@ -2,13 +2,13 @@
 infect,infect|0.5,1,1,Infect,"Infect one subject - human, animal or garbage bin",0,0,4
 sneeze,sneeze|2,0,1,Sneeze,Infected human will create an area that will infect others,1,,0
 touch,touch|2,0,1,Touch,Infected subjects will infect next 3 uninfected subject they touch,1,,0
-infectNonHuman,infectNonHuman|2,0,0,Infect Non Human,Infect subject that is not human in a circle,1,,2
-explodeNonHuman,explodeNonHuman|2,1,,Explode Non Human,infect an area around an infected non human,1,,2
-explodeHuman,explodeHuman|2,1,0,Explode Human,infect an area around an infected human,1,,1
-teleport,teleport|0.5,0,0,Teleport,teleport a random infected subject to a position,1,,0
-summonStone,summonStone|4,0,0,Summon Stone,"Summon a stone, can not overlap with subject",1,,
+infectNonHuman,infectNonHuman|2,0,0,Infect Non Human,Infect subjects that is not human in an area,1,,2
+explodeNonHuman,explodeNonHuman|0.5,1,,Explode Non Human,Explode an infected non human to infect all in an area,1,,2
+explodeHuman,explodeHuman|0.5,1,1,Explode Human,Explode an infected human to infect all in an area,1,,1
+teleport,teleport|0.5,1,0,Teleport,teleport a random infected subject to a position,1,,3
+summonStone,summonStone|4,0,1,Summon Stone,"Summon a stone, can not overlap with subject",1,,
 infectOnce,infect|2,0,0,Infect Once!,"Infect all subjects in area, but can only use once a day",1,1,5
-dizzy,stun|4,0,0,Stun,Stun all humans for 5 seconds within the area,1,,6
+dizzy,stun|4,0,0,Stun,Stun all humans for 5 seconds within the area,1,,9
 attract,,0,,Attract,animals in an area would attract not infected human,,,
 infectAnimal,infectAnimal|2,0,0,Infect Animal,Infect animals in a circle,,,4
 infectInanimated,infectInanimated|2,0,0,Infect Bin,Infect garbage bins in a circle,,,2
