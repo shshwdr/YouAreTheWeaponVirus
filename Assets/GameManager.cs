@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     {
         HandManager.Instance.Init();
         GameRoundManager.Instance.RestartGame();
+        FindObjectOfType<TutorialMenu>().reset();
     }
     // Update is called once per frame
     void Update()

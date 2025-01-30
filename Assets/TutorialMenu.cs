@@ -10,6 +10,8 @@ public class TutorialMenu : MenuBase
     private int currentTutorialId = -1;
    public TMP_Text text;
 
+   public Button skipTutorial;
+
    public GameObject blockButton;
     List<string> tutorialsKeys = new List<string>()
     {
@@ -33,6 +35,12 @@ public class TutorialMenu : MenuBase
         { "tutorialEnd", "That's all you need to know, and infect all of them in time! (Click to continue)" },
     };
 
+    public void reset()
+    {
+        currentTutorialId = -1;
+        isFinished = false;
+        text.text = "";
+    }
     public override void Show()
     {
         base.Show();
@@ -73,16 +81,22 @@ public bool isFinished = false;
         }
         else
         {
-            isFinished = true;
-            blockButton.SetActive(false);
-            foreach (var human in HumanSpawner.Instance.humans)
-            {
-                human.RestartMoving();
-            }
 
-            
-            Hide();
+            FinishTutorial();
         }
+    }
+
+    public void FinishTutorial()
+    {
+        isFinished = true;
+        blockButton.SetActive(false);
+        HandManager.Instance.DrawHand();
+        HandsView.Instance.showRedrawButton();
+        foreach (var human in HumanSpawner.Instance.humans)
+        {
+            human.RestartMoving();
+        }
+        Hide();
     }
 
 
@@ -150,6 +164,10 @@ public bool isFinished = false;
         blockButton. GetComponent<Button>().onClick.AddListener(()=>
         {
             ShowNextTutorial();
+        });
+        skipTutorial.onClick.AddListener(()=>
+        {
+            FinishTutorial();
         });
     }
 

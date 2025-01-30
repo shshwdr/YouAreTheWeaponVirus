@@ -127,6 +127,16 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             FindObjectOfType<TutorialMenu>().FinishSneeze();
                         }
                         break;
+                    
+                    case "explodeNonHuman":
+                        
+                        if (!human.isHuman &&  human.isInfected)
+                        {
+                            foundTarget = true;
+                            results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
+                            //human.Hide();
+                        }
+                        break;
                     case "explodeBin":
                         
                         if (human.isBin &&  human.isInfected)
@@ -140,7 +150,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         
                         if (human.isHuman &&  human.isInfected)
                         {
-                            
+                            foundTarget = true;
                             results[i].GetComponent<Human>().Explode(cardInfo, float.Parse(cardInfo.actions[1]));
                             //human.Hide();
                         }
@@ -262,6 +272,16 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                             human.DrawOutline(true);
                         }
                         break;
+                    
+                    case "explodeNonHuman":
+                        
+                        if (!human.isHuman &&  human.isInfected)
+                        {
+                            foundTarget = true;
+                            human.DrawOutline(true);
+                            //human.Hide();
+                        }
+                        break;
                     case "explodeBin":
                         
                         if (human.isBin &&  human.isInfected)
@@ -275,6 +295,7 @@ public class CardVisualize : MonoBehaviour, IPointerDownHandler,IPointerEnterHan
                         if (human.isHuman &&  human.isInfected)
                         {
                             
+                            foundTarget = true;
                             human.DrawOutline(true);
                         }
                         break;

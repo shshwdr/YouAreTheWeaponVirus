@@ -41,9 +41,19 @@ public class CardSelectionMenu : MenuBase
         GameHud.Instance.gameObject.SetActive(false);
         HandsView.Instance.gameObject.SetActive(false);
         
-        var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw&&x.unlockAt<=GameRoundManager.Instance.currentLevel).ToList();
+        var cardsToPick = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw&&x.unlockAt<GameRoundManager.Instance.currentLevel).ToList();
+var cardsCurrentLeve = CSVLoader.Instance.cardDict.Values.Where(x => x.canDraw&&x.unlockAt==GameRoundManager.Instance.currentLevel).ToList();
+int i = 0;
+foreach (var info in cardsCurrentLeve)
+{
+    
+    cards[i].Init(info);
+    cards[i].isDraggable = false;
+    cards[i].GetComponent<Button>().enabled = true;
+    i++;
+}        
 
-        for (int i = 0; i < 3; i++)
+for (; i < 3; i++)
         {
             var pick = cardsToPick.PickItem();
             cards[i].Init(pick);
